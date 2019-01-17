@@ -1,9 +1,9 @@
-[class^='standardSidebarView-'] {
+[class^="standardSidebarView-"] {
   background: $black-1;
-  [class^='contentRegion-'] {
-    background: $black-1;
-  }
-  [class^='sidebarRegion-'] {
+  [class^="sidebarRegion-"] {
     background: darken($black-1, 5);
+  }
+  [class^="contentRegion-"] {
+    background: $black-1;
   }
 }

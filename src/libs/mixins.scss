@@ -33,7 +33,7 @@ $enable-rounded: true;
     }
   }
   
-  @mixin keyframes($animation-name) {
+  @mixin keyframes($animation-name...) {
     @-webkit-keyframes #{$animation-name} {
       @content;
     }

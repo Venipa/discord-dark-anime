@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+var imageInliner = require('postcss-image-inliner');
 
 /*
  |--------------------------------------------------------------------------
@@ -10,9 +11,37 @@ let mix = require('laravel-mix');
  | file for your application, as well as bundling up your JS files.
  |
  */
-
-mix.sass('src/core.scss', 'dist/')
-    .setPublicPath('dist');
+mix.setPublicPath('dist');
+mix.sass('src/core.scss', 'dist/');
+mix.setResourceRoot('.');
+mix.options({
+    processCssUrls: true,
+    postCss: [
+        imageInliner({
+            assetPath: [
+                'src/resources'
+            ],
+            maxFileSize: 0
+        })
+    ]
+});
+// mix.webpackConfig({
+//   module: {
+//     rules: [
+//       {
+//         test: /\.(png|jpg|gif)$/i,
+//         use: [
+//           {
+//             loader: 'url-loader',
+//             options: {
+//               limit: 1024 * 1024 * 3
+//             }
+//           }
+//         ]
+//       }
+//     ]
+//   }
+// });
 
 // Full API
 // mix.js(src, output);

@@ -1,17 +1,1 @@
-::-webkit-scrollbar,
-::-webkit-scrollbar-track-piece {
-  border-radius: 0px;
-  display: none !important;
-}
-.theme-dark {
-  @import 'modules/base.scss';
-  // Popouts
-  &[class*="popouts-"] {
-    & > [role*="dialog"][class*="popout-"] {
-      margin-left: -30px;
-    }
-    [class^="userPopout-"] {
-      
-    }
-  }
-}
+@import 'modules/base.scss';

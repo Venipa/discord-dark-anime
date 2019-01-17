@@ -1,17 +1,43 @@
 @import '../libs/variables.scss';
 @import '../libs/mixins.scss';
 
-[class^='layers-'],
-[class^='layer-'],
-[class^='channels-'],
-[class^='channels-'] > [class*='container-'],
-[class^='container-'],
-[class^='titleWrapper-'] > [class*='title-'] {
-  background-color: $black-1;
+.theme-dark {
+  @import 'scrollbar.scss';
+  @import 'main-menu.scss';
+  @import 'guilds.scss';
+  @import 'chat.scss';
+  @import 'members.scss';
+  @import 'channels.scss';
+  @import 'codeBlocks.scss';
+  @import 'emojiPicker.scss';
+  @import 'modals.scss';
+  @import 'popouts.scss';
+
+  [class^='layers-'],
+  [class^='layer-'],
+  [class^='channels-'],
+  [class^='channels-'] > [class*='container-'],
+  [class^='container-'],
+  [class*='headerBar-'],
+  [class^='messagesPopoutWrap-'] > [class^='header-'],
+  [class^='table-'] > [class*='header-'],
+  [class^='titleWrapper-'] > [class*='title-'] {
+    background-color: $black-1;
+  }
+  [class^='messagesPopoutWrap-'] [class^='messageGroupWrapper-'] [class^='actionButtons-'] {
+    background-color: transparent;
+    box-shadow: initial;
+  }
+  [class^='messagesPopoutWrap-'],
+  [class^='messagesPopoutWrap-'] [class^='messageGroupWrapper-'],
+  [class^='gameLibrary-'],
+  [class^='applicationStore-'],
+  [class^='activityFeed-'] {
+    background-color: darken($black, 4);
+  }
+  [class^='card-'] {
+    background-color: darken($black, 8)
+  }
 }
 
-@import 'guilds.scss';
-@import 'chat.scss';
-@import 'members.scss';
-@import 'channels.scss';
-@import 'main-menu.scss';
+@import 'contextmenu.scss';

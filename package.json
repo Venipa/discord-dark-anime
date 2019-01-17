@@ -2,13 +2,19 @@
   "name": "discord-dark-anime",
   "version": "0.1.0",
   "description": "Discord Theme - Dark Anime",
-  "dependencies": {},
+  "dependencies": {
+    "base64-inline-loader": "^1.1.1",
+    "image-source-loader": "^0.6.5",
+    "postcss-image-inliner": "^2.0.0"
+  },
   "devDependencies": {
     "cross-env": "^5.2.0",
+    "file-loader": "^3.0.1",
     "laravel-mix": "^4.0.14",
     "resolve-url-loader": "^2.3.1",
     "sass": "^1.16.0",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "url-loader": "^1.1.2"
   },
   "scripts": {
     "start": "npm run watch",
