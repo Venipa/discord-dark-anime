@@ -1,0 +1,17 @@
+@import '../libs/variables.scss';
+@import '../libs/mixins.scss';
+
+[class^='layers-'],
+[class^='layer-'],
+[class^='channels-'],
+[class^='channels-'] > [class*='container-'],
+[class^='container-'],
+[class^='titleWrapper-'] > [class*='title-'] {
+  background-color: $black-1;
+}
+
+@import 'guilds.scss';
+@import 'chat.scss';
+@import 'members.scss';
+@import 'channels.scss';
+@import 'main-menu.scss';

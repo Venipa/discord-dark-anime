@@ -1,0 +1,39 @@
+{
+  "name": "discord-dark-anime",
+  "version": "0.1.0",
+  "description": "Discord Theme - Dark Anime",
+  "dependencies": {},
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "laravel-mix": "^4.0.14",
+    "resolve-url-loader": "^2.3.1",
+    "sass": "^1.16.0",
+    "sass-loader": "^7.1.0"
+  },
+  "scripts": {
+    "start": "npm run watch",
+    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Venrir/discord-dark-anime.git"
+  },
+  "keywords": [
+    "discord",
+    "discord-js",
+    "discord-theme",
+    "theme",
+    "discord-skin",
+    "venipa",
+    "cascade"
+  ],
+  "author": "Venipa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Venrir/discord-dark-anime/issues"
+  },
+  "homepage": "https://github.com/Venrir/discord-dark-anime#readme"
+}
