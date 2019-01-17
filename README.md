@@ -12,7 +12,7 @@ customizeable background in the src/modules/variables.scss file
 ```
 
 Tools used for CSS Injection:
-[DiscordInjection](https://github.com/DiscordInjections/DiscordInjection)
+[DiscordInjection](https://github.com/DiscordInjections/DiscordInjections)
 
 ### Server
 ![](https://i.mavis.moe/f/QuLsViB1dO/discord-2019-01-17-19-32-51.png)
