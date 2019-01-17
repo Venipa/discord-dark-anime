@@ -1,0 +1,52 @@
+&[class*="popouts-"] {
+  & > [role*="dialog"][class*="popout-"] {
+    margin-left: -30px;
+  }
+  [class^="userPopout-"] {
+    [class^="body-"] {
+      background: $black;
+    }
+    & > [class*="header-"] {
+      background-image: url("../resources/triangles.png");
+      background-size: cover;
+      background-position: center;
+    }
+    [class^="footer-"] {
+      background: $black;
+      [class^="quickMessage-"] {
+        background: lighten($black, 3);
+        color: rgba(#fff, 0.7);
+      }
+    }
+    [class*="rolesList"] {
+      [class^="role-"] {
+        $_lxheight: 24px;
+        position: relative;
+        border-radius: 0;
+        border: 0px solid transparent;
+        padding: 0 8px;
+        height: $_lxheight;
+        margin-top: 8px;
+        @include shadow(3);
+
+        [class^="roleName"] {
+          z-index: 1;
+          color: #fff;
+          margin-right: 0;
+          line-height: $_lxheight;
+        }
+        [class^="roleCircle-"] {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 4px;
+          z-index: 0;
+          padding: 0;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+[class^="contextMenu-"] {
+  background: $black;
+  border-radius: 8px;
+  padding: 0px 0px;
+  box-shadow: 0 2px 25px rgba(black, 0.4) !important;
+  animation: opacity 50ms ease, context-open-new 150ms cubic-bezier(0, 0, 0, 1);
+  transform-origin: top;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 1px solid lighten($black, 3);
+
+  [class^="slider-"] {
+    [class^="track-"] {
+      right: 0px !important;
+      left: 3px !important;
+    }
+    [class^="grabber-"] {
+      background: $primary;
+      height: 12px;
+      width: 12px;
+      margin-left: -7px;
+      margin-top: 3px;
+    }
+  }
+  [class^="item-"] {
+    background: transparent !important;
+    border-radius: 0px;
+    transition: all 80ms ease;
+    cursor: pointer;
+    margin: 0px;
+    padding: 9px 15px;
+    color: #fafafa;
+    animation: opacity 200ms 100ms backwards;
+    &:hover {
+      background: rgba(225, 225, 225, 0.03) !important;
+      color: #fff;
+      transition: all 0ms;
+    }
+  }
+}
+@include keyframes(context-open-new) {
+  0% {
+    transform: scale(1, 0.8);
+  }
+}
+@include keyframes(context-open) {
+  0% {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
+@include keyframes(context-open-invertY) {
+  0% {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+  }
+}
