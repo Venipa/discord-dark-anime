@@ -26,15 +26,28 @@
     "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "test": "jest",
-    "pretty": "prettier --write --tab-width 4 \"src/**/*.scss\"",
-    "precommit": "lint-staged && npm test"
+    "fix:other": "npm run prettier --write",
+    "fix:js": "npm run test:js --fix",
+    "fix": "npm run fix:js && npm run fix:other",
+    "prettier": "prettier \"**/*.{json,md,scss,yaml,yml}\"",
+    "test:other": "npm run prettier --list-different",
+    "test:js": "eslint --ignore-path .gitignore --ignore-path .prettierignore \"**/*.{js,jsx}\"",
+    "test": "npm run test:other"
   },
   "lint-staged": {
-    "*.scss": [
-      "npm run pretty",
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md,scss,yaml,yml}": [
+      "prettier --write",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "repository": {
     "type": "git",
