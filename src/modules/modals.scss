@@ -1,17 +1,17 @@
-[class^='modal-'] {
-  [class^='inner-'] {
-    [class^='topSection'] {
-        background-image: url('../resources/triangles.png');
-        background-size: cover;
-        background-position: center;
+[class^="modal-"] {
+  [class^="inner-"] {
+    [class^="topSection"] {
+      background-image: url("../resources/triangles.png");
+      background-size: cover;
+      background-position: center;
     }
-    [class^='body-'] {
+    [class^="body-"] {
       background: $black;
     }
   }
 }
-[class^='connectedAccounts-'] > [class*='connectedAccount-'],
-[class^='userInfoSection-'][class$='+'] {
+[class^="connectedAccounts-"] > [class*="connectedAccount-"],
+[class^="userInfoSection-"][class$="+"] {
   background: darken($black, 5);
   border-radius: 8px;
 }

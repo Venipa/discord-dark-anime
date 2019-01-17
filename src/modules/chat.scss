@@ -1,30 +1,30 @@
-[class^='chat-'],
-[class^='content-'],
-[class^='messagesWrapper-'] {
+[class^="chat-"],
+[class^="content-"],
+[class^="messagesWrapper-"] {
   &,
-  [class*='typing-'] {
+  [class*="typing-"] {
     background-color: transparent;
   }
-  [class*='typing-'] {
+  [class*="typing-"] {
     padding: 0 18px;
   }
 }
-[class^='containerDefault-'] {
-  [class*='content-'] {
+[class^="containerDefault-"] {
+  [class*="content-"] {
     margin: 0;
     border-radius: 0px !important;
-    &[class*='contentSelectedText-'] {
+    &[class*="contentSelectedText-"] {
       background-color: darken($primary, 5);
     }
   }
 }
-[class*='containerCozy-'] {
-  [class*='dividerEnabled-'] {
+[class*="containerCozy-"] {
+  [class*="dividerEnabled-"] {
     border-bottom-color: transparent;
   }
 }
-[class^='divider-'] {
-  [class*='dividerContent-'] {
+[class^="divider-"] {
+  [class*="dividerContent-"] {
     color: lighten($primary, 5) !important;
     &:before,
     &:after {
@@ -32,11 +32,11 @@
     }
   }
 }
-[class^='chat-'] {
+[class^="chat-"] {
   background: rgba(0, 0, 0, 0);
   position: relative;
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -57,14 +57,14 @@
     margin-left: 0;
     margin-right: 0;
     margin-top: 28px;
-    [class^='channelTextArea-'] {
-      margin-bottom:0;
-      padding-top:0;
-      [class*='button-'] {
+    [class^="channelTextArea-"] {
+      margin-bottom: 0;
+      padding-top: 0;
+      [class*="button-"] {
         opacity: 0.7;
       }
       border-top: none;
-      > [class*='inner-'] {
+      > [class*="inner-"] {
         > [class^="buttons"] {
           padding: 20px 6px 20px 0;
         }
@@ -77,14 +77,13 @@
         }
       }
     }
-    [class*='typing-'] {
+    [class*="typing-"] {
       box-shadow: inset 1000px 0 500px -510px $black-1;
       padding: 0 18px;
       position: absolute;
       bottom: 100%;
-      left:0;
+      left: 0;
       width: 100%;
-      
     }
   }
 }

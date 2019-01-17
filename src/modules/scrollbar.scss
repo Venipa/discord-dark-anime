@@ -1,19 +1,19 @@
 ::-webkit-scrollbar,
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-track-piece {
-    background: transparent!important;
-    -webkit-box-shadow: none!important;
-    -moz-box-shadow: none!important;
-    box-shadow: none!important;
-    border: none!important;
-    width:5px!important;
+  background: transparent !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  width: 5px !important;
 }
 ::-webkit-scrollbar-thumb {
-    &:hover {
-        background: rgba($primary, 1)!important;
-    }
-    background: rgba($primary, .3)!important;
-    width:5px;
-    border:none;
-    border-radius: 0px;
+  &:hover {
+    background: rgba($primary, 1) !important;
+  }
+  background: rgba($primary, 0.3) !important;
+  width: 5px;
+  border: none;
+  border-radius: 0px;
 }

@@ -1,25 +1,25 @@
-&[class*='popouts-'] {
-  & > [role*='dialog'][class*='popout-'] {
+&[class*="popouts-"] {
+  & > [role*="dialog"][class*="popout-"] {
     margin-left: -30px;
   }
-  [class^='userPopout-'] {
-    [class^='body-'] {
+  [class^="userPopout-"] {
+    [class^="body-"] {
       background: $black;
     }
-    & > [class*='header-'] {
-        background-image: url('../resources/triangles.png');
+    & > [class*="header-"] {
+      background-image: url("../resources/triangles.png");
       background-size: cover;
       background-position: center;
     }
-    [class^='footer-'] {
+    [class^="footer-"] {
       background: $black;
-      [class^='quickMessage-'] {
+      [class^="quickMessage-"] {
         background: lighten($black, 3);
         color: rgba(#fff, 0.7);
       }
     }
-    [class*='rolesList'] {
-      [class^='role-'] {
+    [class*="rolesList"] {
+      [class^="role-"] {
         $_lxheight: 24px;
         position: relative;
         border-radius: 0;
@@ -29,13 +29,13 @@
         margin-top: 8px;
         @include shadow(3);
 
-        [class^='roleName'] {
+        [class^="roleName"] {
           z-index: 1;
           color: #fff;
           margin-right: 0;
           line-height: $_lxheight;
         }
-        [class^='roleCircle-'] {
+        [class^="roleCircle-"] {
           position: absolute;
           top: 0;
           left: 0;

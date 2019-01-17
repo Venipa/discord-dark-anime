@@ -1,4 +1,4 @@
-[class^='contextMenu-'] {
+[class^="contextMenu-"] {
   background: $black;
   border-radius: 8px;
   padding: 0px 0px;
@@ -9,12 +9,12 @@
   padding-bottom: 15px;
   border: 1px solid lighten($black, 3);
 
-  [class^='slider-'] {
-    [class^='track-'] {
+  [class^="slider-"] {
+    [class^="track-"] {
       right: 0px !important;
       left: 3px !important;
     }
-    [class^='grabber-'] {
+    [class^="grabber-"] {
       background: $primary;
       height: 12px;
       width: 12px;
@@ -22,7 +22,7 @@
       margin-top: 3px;
     }
   }
-  [class^='item-'] {
+  [class^="item-"] {
     background: transparent !important;
     border-radius: 0px;
     transition: all 80ms ease;

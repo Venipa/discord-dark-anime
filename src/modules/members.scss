@@ -1,10 +1,10 @@
-[class^='membersWrap-'] {
-  [class*='members-'] {
+[class^="membersWrap-"] {
+  [class*="members-"] {
     background: transparent;
-    & > [class*='member-'] {
+    & > [class*="member-"] {
       @include border-left-radius(30px);
       @include transition(background 0.1s ease-out);
-      [class^='content-'] {
+      [class^="content-"] {
         background: transparent !important;
       }
       &.popout-open,
@@ -13,10 +13,10 @@
         &.popout-open {
           background-color: $primary;
           color: #fff;
-          [class^='nameTag-'] {
+          [class^="nameTag-"] {
             color: #fff !important;
           }
-          [class^='activityText-'] {
+          [class^="activityText-"] {
             color: rgba(#fff, 0.8);
           }
         }

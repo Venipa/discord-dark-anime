@@ -2,14 +2,15 @@ $black: #202225;
 $black-1: #212428;
 $primary: #7289da;
 $backgrounds: (
-    default: "https://i.mavis.moe/f/JkfXj2RaCy/731918.jpg",
-    samurai: "https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-522848.jpg"
+  default: "https://i.mavis.moe/f/JkfXj2RaCy/731918.jpg",
+  samurai:
+    "https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-522848.jpg"
 );
-$background-key: 'samurai';
+$background-key: "samurai";
 
 @function getBackground($key: null) {
-    @if(map-has-key($map: $backgrounds, $key: $key)) {
-        @return map-get($map: $backgrounds, $key: $key);
-    }
-    @return map-get($map: $backgrounds, $key: 'default');
+  @if (map-has-key($map: $backgrounds, $key: $key)) {
+    @return map-get($map: $backgrounds, $key: $key);
+  }
+  @return map-get($map: $backgrounds, $key: "default");
 }
