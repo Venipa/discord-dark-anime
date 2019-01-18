@@ -1,31 +1,31 @@
-[class^="emojiPicker-"] {
+.da-emojiPicker {
   border: 1px solid darken($black-1, 10);
   height: 400px;
   border-radius: 8px;
-  [class^="diversitySelector-"] {
-    [class^="popout-"] {
+  .da-diversitySelector {
+    .da-popout {
       background-color: $black-1;
       border: 1px solid lighten($black-1, 5);
     }
   }
-  [class^="searchBar-"] {
+  .da-searchBar {
     background: transparent;
     color: #fff;
-    [class^="searchBarInner-"] {
+    .da-searchBarInner {
       background: rgba(0, 0, 0, 0.2);
     }
   }
-  [class^="stickyHeader-"] {
+  .da-stickyHeader {
     background: transparent;
   }
-  [class^="emojiItem-"] {
-    &[class*="selected-"] {
+  .da-emojiItem {
+    &.da-selected {
       background-color: rgba($black-1, 0.15) !important;
     }
   }
-  background: $black-1;
-  [class^="scrollerWrap-"] {
-    [class^="scroller-"] {
+  background: parseVar("default");
+  .da-scrollerWrap {
+    .da-scroller {
       height: 100%;
     }
   }

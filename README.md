@@ -11,11 +11,11 @@ customizeable background in the src/modules/variables.scss file
 2. npm i
 3. npm run production
 4. waiting until its finished
-5. parsed file located in dist. (core.css)
+5. parsed file located in dist. (core.theme.css)
 ```
 
 Tools used for CSS Injection:
-[DiscordInjection](https://github.com/DiscordInjections/DiscordInjections)
+[Bandaged Better Discord](https://github.com/rauenzi/BetterDiscordApp)
 
 ### Server
 

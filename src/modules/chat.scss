@@ -1,30 +1,43 @@
-[class^="chat-"],
-[class^="content-"],
-[class^="messagesWrapper-"] {
+.da-chat,
+.da-content,
+.da-messagesWrapper {
   &,
-  [class*="typing-"] {
+  .da-typing {
     background-color: transparent;
   }
-  [class*="typing-"] {
+  .da-typing {
     padding: 0 18px;
   }
 }
-[class^="containerDefault-"] {
-  [class*="content-"] {
+.da-containerDefault {
+  .da-content {
     margin: 0;
     border-radius: 0px !important;
-    &[class*="contentSelectedText-"] {
+    &.da-contentSelectedText {
       background-color: darken($primary, 5);
     }
   }
 }
-[class*="containerCozy-"] {
-  [class*="dividerEnabled-"] {
-    border-bottom-color: transparent;
+.da-messagesWrapper {
+  .da-containerCozyBounded {
+    .da-image {
+      @include transition(box-shadow 0.2s ease-out);
+      @include shadow(2);
+    }
+    @include transition(background-color 0.12s ease-out);
+    &:hover {
+      background-color: rgba(#fff, 0.05);
+      .da-image {
+        @include shadow(3);
+      }
+    }
+    .da-dividerEnabled {
+      border-bottom-color: transparent;
+    }
   }
 }
-[class^="divider-"] {
-  [class*="dividerContent-"] {
+.da-divider {
+  .da-dividerContent {
     color: lighten($primary, 5) !important;
     &:before,
     &:after {
@@ -32,7 +45,7 @@
     }
   }
 }
-[class^="chat-"] {
+.da-chat {
   background: rgba(0, 0, 0, 0);
   position: relative;
   &:before {
@@ -43,7 +56,7 @@
     right: 0;
     bottom: 0;
 
-    background-image: url(getBackground());
+    background-image: parseVar("custom-background");
     background-size: cover;
     z-index: 0;
     opacity: 0.1;
@@ -57,27 +70,23 @@
     margin-left: 0;
     margin-right: 0;
     margin-top: 28px;
-    [class^="channelTextArea-"] {
+    .da-channelTextArea {
       margin-bottom: 0;
       padding-top: 0;
-      [class*="button-"] {
+      .da-button {
         opacity: 0.7;
       }
       border-top: none;
-      > [class*="inner-"] {
-        > [class^="buttons"] {
-          padding: 20px 6px 20px 0;
-        }
+      > .da-inner {
+        // > .da-buttons {}
         background: transparent;
         border-radius: 0;
         box-shadow: inset 1000px 0 500px -510px $black-1;
         @include transition(box-shadow 0.12s ease-out);
-        textarea[class^="textArea-"] {
-          padding: 25px 10px;
-        }
+        // textarea.da-textArea {}
       }
     }
-    [class*="typing-"] {
+    .da-typing {
       box-shadow: inset 1000px 0 500px -510px $black-1;
       padding: 0 18px;
       position: absolute;

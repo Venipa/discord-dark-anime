@@ -10,9 +10,9 @@
 }
 ::-webkit-scrollbar-thumb {
   &:hover {
-    background: rgba($primary, 1) !important;
+    background: rgba(#fff, 1) !important;
   }
-  background: rgba($primary, 0.3) !important;
+  background: rgba(#fff, 0.3) !important;
   width: 5px;
   border: none;
   border-radius: 0px;

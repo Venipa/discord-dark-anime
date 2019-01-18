@@ -13,31 +13,32 @@
   @import "modals.scss";
   @import "popouts.scss";
 
-  [class^="layers-"],
-  [class^="layer-"],
-  [class^="channels-"],
-  [class^="channels-"] > [class*="container-"],
-  [class^="container-"],
-  [class*="headerBar-"],
-  [class^="messagesPopoutWrap-"] > [class^="header-"],
-  [class^="table-"] > [class*="header-"],
-  [class^="titleWrapper-"] > [class*="title-"] {
+  .da-layers,
+  .da-layer,
+  .da-channels,
+  .da-channels > .da-container,
+  .da-headerBar,
+  .da-messagesPopoutWrap > .da-header,
+  .da-table > .da-header,
+  .da-titleWrapper > .da-title {
     background-color: $black-1;
   }
-  [class^="messagesPopoutWrap-"]
-    [class^="messageGroupWrapper-"]
-    [class^="actionButtons-"] {
+  .da-messagesPopoutWrap .da-messageGroupWrapper .da-actionButtons {
     background-color: transparent;
     box-shadow: initial;
   }
-  [class^="messagesPopoutWrap-"],
-  [class^="messagesPopoutWrap-"] [class^="messageGroupWrapper-"],
-  [class^="gameLibrary-"],
+  .da-messagesPopoutWrap,
+  .da-messagesPopoutWrap .da-messageGroupWrapper,
+  .da-gameLibrary,
+  .da-friendsTable,
   [class^="applicationStore-"],
-  [class^="activityFeed-"] {
+  .da-activityFeed {
     background-color: darken($black, 4);
   }
-  [class^="card-"] {
+  .da-friendsTable {
+    margin-top: 0;
+  }
+  .da-card {
     background-color: darken($black, 8);
   }
 }

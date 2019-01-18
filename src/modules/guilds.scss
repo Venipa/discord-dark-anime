@@ -1,3 +1,19 @@
-[class^="guilds-"] {
-  padding: 8px 0 8px 0;
+.da-guildsWrapper {
+  .da-guilds {
+    padding: 8px 0 8px 10px;
+  }
+}
+$imageRadius: 4px;
+.da-message {
+  .da-wrapper {
+    border-radius: $imageRadius + 4px;
+  }
+}
+.da-guild {
+  .da-guildInner {
+    &,
+    .da-guildIcon {
+      border-radius: $imageRadius + 6px !important;
+    }
+  }
 }

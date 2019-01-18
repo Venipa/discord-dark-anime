@@ -1,9 +1,9 @@
-[class^="standardSidebarView-"] {
+.da-standardSidebarView {
   background: $black-1;
-  [class^="sidebarRegion-"] {
+  .da-sidebarRegion {
     background: darken($black-1, 5);
   }
-  [class^="contentRegion-"] {
+  .da-contentRegion {
     background: $black-1;
   }
 }

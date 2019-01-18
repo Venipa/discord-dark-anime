@@ -1,25 +1,29 @@
-&[class*="popouts-"] {
-  & > [role*="dialog"][class*="popout-"] {
+&.da-popouts {
+  & > [role*="dialog"].da-popout {
     margin-left: -30px;
   }
-  [class^="userPopout-"] {
-    [class^="body-"] {
-      background: $black;
-    }
-    & > [class*="header-"] {
-      background-image: url("../resources/triangles.png");
+  .da-userPopout {
+    .da-header {
+      background-image: url("/src/resources/triangles.png");
       background-size: cover;
       background-position: center;
+      &:not(.da-headerPlaying) {
+        @include box-shadow(inset 0 -50px 50px -30px parseVar("default"));
+      }
     }
-    [class^="footer-"] {
+    .da-header:not(.da-headerPlaying),
+    & > .da-body {
+      background-color: $black;
+    }
+    .da-footer {
       background: $black;
-      [class^="quickMessage-"] {
+      .da-quickMessage {
         background: lighten($black, 3);
         color: rgba(#fff, 0.7);
       }
     }
-    [class*="rolesList"] {
-      [class^="role-"] {
+    .da-rolesList {
+      .da-role {
         $_lxheight: 24px;
         position: relative;
         border-radius: 0;
@@ -29,13 +33,13 @@
         margin-top: 8px;
         @include shadow(3);
 
-        [class^="roleName"] {
+        .da-roleName {
           z-index: 1;
           color: #fff;
           margin-right: 0;
           line-height: $_lxheight;
         }
-        [class^="roleCircle-"] {
+        .da-roleCircle {
           position: absolute;
           top: 0;
           left: 0;
