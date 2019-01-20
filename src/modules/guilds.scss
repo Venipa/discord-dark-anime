@@ -28,12 +28,17 @@ $imageRadius: 4px;
 }
 .da-guilds {
   & > .da-dms,
+  & > .da-guild > .da-guildsError,
   & > .da-guild {
+    &.da-guildsError {
+      line-height: 32px;
+    }
     & + .da-guild {
       margin-top: 16px;
     }
     &.da-dms {
       & > .da-guild,
+      & > .da-guild > .da-guildsError,
       .da-guildInner a {
         @include size(map-get($guildSettings, "icon-size"));
       }
