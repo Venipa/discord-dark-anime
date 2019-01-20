@@ -96,6 +96,11 @@ $enable-rounded: true;
 @mixin rotate($deg) {
   @include transform(rotate(#{$deg}deg));
 }
+
+@mixin size($size) {
+  height: $size;
+  width: $size;
+}
 @mixin shadow($level) {
   @if $level == 0 {
     -webkit-box-shadow: initial;

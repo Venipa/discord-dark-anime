@@ -1,4 +1,10 @@
+$guildSettings: (
+  icon-size: 35px,
+  badge-fontSize: 10px,
+  guild-wrapper-width: 60px
+);
 .da-guildsWrapper {
+  width: map-get($map: $guildSettings, $key: "guild-wrapper-width");
   .da-guilds {
     padding: 8px 0 8px 10px;
   }
@@ -9,11 +15,76 @@ $imageRadius: 4px;
     border-radius: $imageRadius + 4px;
   }
 }
-.da-guild {
-  .da-guildInner {
-    &,
-    .da-guildIcon {
-      border-radius: $imageRadius + 6px !important;
+.da-guilds {
+  & > .da-dms,
+  & > .da-guild {
+    & + .da-guild {
+      margin-top: 16px;
+    }
+    &.da-dms {
+      & > .da-guild,
+      .da-guildInner a {
+        @include size(map-get($guildSettings, "icon-size"));
+      }
+    }
+    .da-badge {
+      font-size: map-get($map: $guildSettings, $key: "badge-fontSize");
+    }
+    &.da-selected:before {
+      // $selectedLine: ((map-get($guildSettings, 'icon-size') + 5px) / 2);
+      // height: $selectedLine;
+      // margin-top: ($selectedLine / 2) * -1; // background: lighten($primary, 10);
+      height: map-get($guildSettings, "icon-size") + 16px;
+      /* margin-top: -10px; */
+      background: rgba(#fff, 0.1);
+      width: 300%;
+      left: -100%;
+      top: 12px;
+      border-radius: 0px !important;
+    }
+    &:not(.da-dms) {
+      @include size(map-get($guildSettings, "icon-size"));
+    }
+    .da-guildInner {
+      line-height: map-get($guildSettings, "icon-size");
+      &,
+      & > a,
+      .da-iconSizeLarge {
+        @include size(map-get($guildSettings, "icon-size"));
+      }
+      &,
+      .da-guildIcon {
+        border-radius: $imageRadius + 6px !important;
+      }
+    }
+  }
+  & > .da-guild {
+    &:first-child {
+      .da-badge {
+        top: -5px;
+        right: -15px;
+        bottom: initial;
+      }
+      .da-guildInner {
+        .repoUtils {
+          position: relative;
+          &:before {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            content: "";
+            background-image: url("/src/resources/logo@0,25x.png");
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+          svg {
+            display: none;
+          }
+        }
+      }
     }
   }
 }
