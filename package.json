@@ -1,6 +1,6 @@
 {
   "name": "discord-dark-anime",
-  "version": "0.1.1-pre",
+  "version": "0.2.0-pre",
   "description": "Discord Theme - Dark Anime",
   "dependencies": {
     "base64-inline-loader": "^1.1.1",
@@ -25,7 +25,8 @@
     "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js && npm run create-release",
+    "create-release": "node create-release.js",
     "fix:other": "npm run prettier --write",
     "fix": "npm run fix:js && npm run fix:other",
     "prettier": "prettier \"**/*.{json,md,scss,yaml,yml}\"",

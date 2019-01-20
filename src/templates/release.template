@@ -1,0 +1,14 @@
+:bd-header
+
+/*
+* Name: :packageName
+* Description: :packageDescription
+* Author: :authorName
+* Version: :packageVersion,
+*/
+
+/*
+:license
+*/
+
+@import url(":releaseUrl");

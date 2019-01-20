@@ -1,6 +1,7 @@
 let mix = require('laravel-mix');
 let fs = require('fs');
 let header = require('./bd.json');
+let config = require('./config.json');
 var imageInliner = require('postcss-image-inliner');
 
 /*
@@ -13,9 +14,9 @@ var imageInliner = require('postcss-image-inliner');
  | file for your application, as well as bundling up your JS files.
  |
  */
-let coreStyle = 'core.theme';
+let coreStyle = config.coreStyle;
 mix.setPublicPath('dist');
-mix.sass('src/' + coreStyle + '.scss', 'dist/');
+mix.sass('src/' + coreStyle + '.scss', config.paths.destination);
 mix.setResourceRoot('src/resources');
 mix.options({
   processCssUrls: true,

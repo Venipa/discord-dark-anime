@@ -1,0 +1,12 @@
+{
+  "coreStyle": "core.theme",
+  "paths": {
+    "destination": "dist/"
+  },
+  "github": {
+    "raw": "https://raw.githubusercontent.com/Venipa/",
+    "profile": "https://github.com/Venipa/",
+    "repository": "discord-dark-anime/",
+    "fileRoot": "master/"
+  }
+}
