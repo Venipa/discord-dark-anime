@@ -8,6 +8,17 @@ $guildSettings: (
   .da-guilds {
     padding: 8px 0 8px 10px;
   }
+  .da-guildSeparator,
+  .da-friendsOnline {
+    &.da-friendsOnline {
+      margin-top: 16px;
+    }
+    &.da-guildSeparator:after {
+      left: -40px;
+      width: map-get($map: $guildSettings, $key: "guild-wrapper-width") + 40px;
+    }
+    margin-left: -6px;
+  }
 }
 $imageRadius: 4px;
 .da-message {
