@@ -13,6 +13,7 @@ $theme-name: "DDA";
   @include makeVar("primary", $primary);
   @include makeVar("default", $black);
   @include makeVar("default-alternative", $black-1);
+  @include makeVar("role-list-height", 160px);
   @include makeVar(
     "custom-background",
     "url(https://i.mavis.moe/f/KltlGh9rGZ/wallhaven-735611.png)"

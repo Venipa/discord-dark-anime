@@ -1,6 +1,6 @@
 {
   "name": "discord-dark-anime",
-  "version": "0.2.0-pre",
+  "version": "0.2.1-pre",
   "description": "Discord Theme - Dark Anime",
   "dependencies": {
     "base64-inline-loader": "^1.1.1",
