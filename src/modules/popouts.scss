@@ -14,7 +14,7 @@
       &:not(.da-headerPlaying) {
         @include box-shadow(inset 0 -50px 50px -30px parseVar("default"));
       }
-      flex: 1 1 40%;
+      flex: 1 1 30%;
       display: flex;
       flex-direction: column;
     }
@@ -23,7 +23,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      flex: 1 0 50%;
+      flex: 1 1 auto;
       background-color: $black;
     }
     .da-footer {
