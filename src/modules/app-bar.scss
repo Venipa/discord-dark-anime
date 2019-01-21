@@ -1,0 +1,36 @@
+.da-titleBar {
+  .da-wordmark {
+    left: 5px;
+    top: 2px;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url("/src/resources/logo@0,25x.png");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 20px;
+      width: 20px;
+    }
+    &:after {
+      content: config("theme-name", "dda");
+      position: absolute;
+      top: 2px;
+      left: 24px;
+      height: 18px;
+      z-index: 99;
+      width: 100px;
+      white-space: nowrap;
+      color: #fff;
+      font-family: Whitney, sans-serif;
+      font-size: 12px;
+      line-height: 16px;
+      vertical-align: middle;
+    }
+    & > svg {
+      display: none;
+    }
+  }
+}
