@@ -1,7 +1,7 @@
 {
   "name": "discord-dark-anime",
-  "version": "0.2.1-pre",
-  "description": "Discord Theme - Dark Anime",
+  "version": "0.2.5-pre",
+  "description": "Discord Theme - Dark Koi",
   "dependencies": {
     "base64-inline-loader": "^1.1.1",
     "image-source-loader": "^0.6.5",

@@ -3,7 +3,8 @@
   .da-sidebarRegion {
     background: darken($black-1, 5);
   }
-  .da-contentRegion {
+  .da-contentRegion,
+  .content-region {
     background: $black-1;
   }
 }
