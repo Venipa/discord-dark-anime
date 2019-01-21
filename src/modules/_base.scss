@@ -33,13 +33,13 @@
   .da-friendsTable,
   [class^="applicationStore-"],
   .da-activityFeed {
+    .da-card {
+      background-color: darken($black, 8);
+    }
     background-color: darken($black, 4);
   }
   .da-friendsTable {
     margin-top: 0;
-  }
-  .da-card {
-    background-color: darken($black, 8);
   }
 }
 
