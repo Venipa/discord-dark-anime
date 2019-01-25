@@ -1,3 +1,10 @@
+@import "../libs/helpers/deep-map-get";
+@import "../libs/helpers/deep-map-check";
+@import "../libs/helpers/deep-map-merge";
+@import "../libs/helpers/str-capitalize";
+@import "../libs/helpers/str-explode";
+@import "../libs/helpers/str-replace";
+@import "../libs/helpers/strip-unit";
 @import "../libs/variables.scss";
 @import "../libs/mixins.scss";
 
@@ -10,6 +17,7 @@
   @import "channels.scss";
   @import "codeBlocks.scss";
   @import "emojiPicker.scss";
+  @import "gifPicker.scss";
   @import "modals.scss";
   @import "popouts.scss";
   @import "buttons.scss";
@@ -41,6 +49,12 @@
   }
   .da-friendsTable {
     margin-top: 0;
+  }
+  .da-button {
+    @include border-radius(config("radius"));
+  }
+  a {
+    color: config("primary");
   }
 }
 

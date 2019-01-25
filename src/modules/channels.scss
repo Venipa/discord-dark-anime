@@ -7,20 +7,26 @@
       border-radius: 0px !important;
       @include transition(
         background-color 0.12s ease-out,
-        color 0.12s ease-out
+        color 0.12s ease-out,
+        box-shadow 0.12s ease-out
       );
       &:hover {
         background-color: darken($black, 3);
       }
+      @include box-shadow(inset 0 0 35px -35px transparent);
       &.da-contentSelectedText {
         & > .da-marginReset:first-child {
           &:before {
             background-color: rgba(#fff, 0.9);
           }
         }
-        background-color: darken($primary, 10);
+        @include box-shadow(
+          inset 70px 0 35px -35px rgba(config("primary"), 0.5)
+        );
         &:hover {
-          background-color: darken($primary, 8);
+          @include box-shadow(
+            inset 100px 0 50px -50px rgba(config("primary"), 0.7)
+          );
         }
       }
       > .da-marginReset:first-child {

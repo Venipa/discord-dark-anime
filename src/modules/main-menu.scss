@@ -1,10 +1,45 @@
 .da-standardSidebarView {
   background: $black-1;
   .da-sidebarRegion {
-    background: darken($black-1, 5);
+    background: darken(config("dark"), 5);
   }
   .da-contentRegion,
   .content-region {
-    background: $black-1;
+    background: darken(config("dark"), 3);
+  }
+  .da-sidebar {
+    [class^="side-"] {
+      #bd-settings-sidebar .ui-tab-bar-header,
+      .da-header {
+        color: config("primary");
+        letter-spacing: 2px;
+      }
+      #bd-settings-sidebar .ui-tab-bar-item,
+      .da-item {
+        @include transition(box-shadow 0.12s ease-out);
+        @include box-shadow(
+          0 0 0 0 config("primary"),
+          inset 0 0 0 -50px config("primary")
+        );
+        &[style*="color: rgb(114, 137, 218)"] {
+          color: config("primary") !important;
+        }
+        &[style*="-color: rgba(114, 137, 218, 0.1)"] {
+          background-color: rgba(config("primary"), 0.1) !important;
+        }
+        &.da-itemSelected,
+        &.selected {
+          &[style*="-color: rgb(114, 137, 218)"] {
+            background-color: rgba(config("primary"), 0.75) !important;
+            color: #fff !important;
+          }
+          background-color: rgba(config("primary"), 0.15);
+          @include box-shadow(
+            -10px 0 0 0 config("primary"),
+            inset 50px 0 50px -50px config("primary")
+          );
+        }
+      }
+    }
   }
 }

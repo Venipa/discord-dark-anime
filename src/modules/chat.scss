@@ -11,13 +11,106 @@
 }
 .da-messagesWrapper {
   .da-containerCozyBounded {
+    $msg-background: darken(config("dark"), 2);
+    $outbound: 70px;
+    $leftpad: 12px;
+    $avatarSize: config("message.avatar-size");
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    @include border-radius(config("radius"));
+    &:before {
+      content: "";
+      position: absolute;
+      left: $outbound;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: calc(100% - #{$outbound});
+      $mediaWidth: 1200px;
+      @media only screen and (min-width: $mediaWidth) {
+        @include box-shadow(inset 1200px 0 500px -510px $msg-background);
+      }
+      @media only screen and (max-width: $mediaWidth) {
+        background-color: $msg-background;
+      }
+      @include border-radius(config("radius"));
+      z-index: -1;
+    }
+    $material-user-overlap: config("message-user-overlap");
+    @if ($material-user-overlap) {
+      &:after {
+        $overlapSize: $avatarSize + 20px;
+        content: "";
+        position: absolute;
+        width: $overlapSize + ($outbound - $overlapSize) + 5px;
+        height: $overlapSize + 10px;
+        @include border-left-radius(config("radius"));
+        left: 0;
+        top: 0;
+        background-color: $msg-background;
+        z-index: -2;
+      }
+    } @else {
+      &:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: $outbound - 18px;
+        right: auto;
+        top: 15px;
+        bottom: auto;
+        border: 32px solid;
+        border-radius: 8px;
+        border-color: $msg-background transparent transparent transparent;
+        z-index: -1;
+      }
+    }
+    .da-message {
+      margin-left: $outbound;
+      margin-bottom: 0;
+      &:first-of-type {
+        position: relative;
+        padding-top: 10px;
+      }
+      &:last-of-type {
+        padding-bottom: 10px;
+      }
+      .da-headerCozy {
+        .da-avatar {
+          width: 0;
+          padding: 0;
+          margin: 0 0 0 $leftpad;
+        }
+        .da-avatar > .da-image {
+          margin-left: -$outbound;
+          height: $avatarSize;
+          width: $avatarSize;
+        }
+      }
+      .da-contentCozy {
+        margin-left: $leftpad;
+
+        .da-isMentionedCozy {
+          &.da-isMentioned,
+          &:after {
+            background-color: rgba(config("primary"), 0.2);
+          }
+          &:after {
+            border-left-color: config("primary");
+          }
+        }
+      }
+    }
     .da-image {
       @include transition(box-shadow 0.2s ease-out);
       @include shadow(2);
     }
     @include transition(background-color 0.12s ease-out);
+    margin: 10px 14px;
+    @include border-radius(config("radius"));
     &:hover {
-      background-color: rgba(#fff, 0.05);
       .da-image {
         @include shadow(3);
       }
@@ -46,7 +139,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-
     background-image: parseVar("custom-background");
     background-size: cover;
     z-index: 0;
@@ -100,9 +192,43 @@
         // > .da-buttons {}
         background: transparent;
         border-radius: 0;
-        box-shadow: inset 1000px 0 500px -510px $black-1;
+        @include box-shadow(inset 1000px 0 500px -510px config("dark-accent"));
         @include transition(box-shadow 0.12s ease-out);
         // textarea.da-textArea {}
+      }
+      .da-autocomplete {
+        background-color: darken($black, 4);
+        border-color: transparent;
+        border-width: 0;
+        border-radius: config("radius");
+        margin: 20px;
+        @include shadow(1);
+        @include transition(box-shadow 0.12s ease-out);
+        &:hover {
+          @include shadow(3);
+        }
+        .da-container {
+          .da-header {
+            $sbHeight: config("autocomplete.searchbar.height");
+            padding: 0;
+            padding-top: 6px;
+            padding-bottom: 12px;
+            .da-searchBar {
+              &,
+              input {
+                border-radius: 0px;
+                background: transparent;
+                height: $sbHeight !important;
+              }
+              & > .da-searchBarIcon {
+                margin: $sbHeight/4 12px;
+              }
+              input {
+                padding: 0 16px;
+              }
+            }
+          }
+        }
       }
     }
     .da-typing {

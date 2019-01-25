@@ -1,0 +1,26 @@
+.da-autocomplete {
+  .da-categoryFadeBlurple {
+    background-color: rgba(config("primary"), 0.95);
+  }
+  .da-focused,
+  .da-result:hover {
+    &:after {
+      @include box-shadow(
+        inset 0 0 0 2px config("primary"),
+        inset 0 0 0 3px config("dark")
+      );
+    }
+  }
+  .da-results {
+    .da-result {
+      &[style*="-color: rgb(115, 142, 245)"] {
+        background-color: rgba(config("primary"), 1) !important;
+      }
+    }
+  }
+  .da-header {
+    .da-backButton {
+      margin-left: 10px;
+    }
+  }
+}

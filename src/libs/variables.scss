@@ -6,15 +6,27 @@ $global-config: (
   radius: 8px,
   theme-name: "Discord Dark Koi",
   primary: $primary,
-  black: $black,
-  black-accent: $black-1
+  dark: $black,
+  dark-accent: $black-1,
+  autocomplete: (
+    searchbar: (
+      height: 42px
+    )
+  ),
+  message-user-overlap: false,
+  message: (
+    avatar-size: 40px
+  )
 );
-@function config($key, $default...) {
-  @if (map-has-key($map: $global-config, $key: $key)) {
-    @return map-get($map: $global-config, $key: $key);
-  } @else {
-    @return $default;
+@function get($key, $map) {
+  $keys: str-explode($key, ".");
+  @if not deep-map-check($map, $keys...) {
+    @error 'The argument $map: `#{$map}` doesn\'t has some of the $keys: `#{$keys}`!';
   }
+  @return deep-map-get($map, $keys...);
+}
+@function config($keys) {
+  @return get($keys, $global-config);
 }
 @function parseVar($name...) {
   @return var(--#{to-lower-case($string: $theme-name)}-#{$name});

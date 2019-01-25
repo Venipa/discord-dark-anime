@@ -1,8 +1,18 @@
 &.da-popouts {
-  & > [role*="dialog"].da-popout {
-    margin-left: -30px;
+  .da-menu {
+    background-color: darken(config("dark"), 5);
+    & > .da-item {
+      @include transition(
+        background-color 0.12s ease-out,
+        color 0.12s ease-out 0.12s
+      );
+      &:hover {
+        background-color: darken(config("dark"), 2);
+      }
+    }
   }
   .da-userPopout {
+    margin-left: -30px;
     display: flex;
     flex: 1 1 auto;
     flex-wrap: wrap;
@@ -46,11 +56,15 @@
     .da-rolesList {
       overflow-y: auto;
       max-height: parseVar("role-list-height");
+      padding: 2px 5px;
+      position: relative;
       .da-role {
+        overflow: hidden;
+        background-color: darken(config("dark"), 5);
+        @include border-radius(config("radius") / 3);
         flex: 1 1 100%;
         $_lxheight: 24px;
         position: relative;
-        border-radius: 0;
         border: 0px solid transparent;
         padding: 0 8px;
         height: $_lxheight;
@@ -61,15 +75,16 @@
           z-index: 1;
           color: #fff;
           margin-right: 0;
-          line-height: $_lxheight;
+          margin-left: 12px;
+          line-height: 1;
         }
         .da-roleCircle {
           position: absolute;
           top: 0;
           left: 0;
-          width: 100%;
+          width: 12px;
           height: 100%;
-          border-radius: 4px;
+          @include border-radius(0);
           z-index: 0;
           padding: 0;
           margin: 0;

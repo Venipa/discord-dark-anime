@@ -1,5 +1,11 @@
 .da-modal {
   .da-inner {
+    & > .da-modal {
+      background: darken(config("dark"), 5);
+      & > .da-footer {
+        background: darken(config("dark"), 5);
+      }
+    }
     .da-topSection,
     .da-topSectionPlaying,
     .da-topSectionNormal {

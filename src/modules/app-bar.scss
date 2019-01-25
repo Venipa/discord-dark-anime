@@ -15,7 +15,7 @@
       width: 20px;
     }
     &:after {
-      content: config("theme-name", "dda");
+      content: config("theme-name");
       position: absolute;
       top: 2px;
       left: 24px;
