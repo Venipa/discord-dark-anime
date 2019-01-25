@@ -1,0 +1,90 @@
+.da-channels {
+  $height: 34px;
+  $marginReset-size: $height - 4px;
+  .da-containerDefault {
+    .da-content {
+      margin: 0;
+      border-radius: 0px !important;
+      @include transition(
+        background-color 0.12s ease-out,
+        color 0.12s ease-out
+      );
+      &:hover {
+        background-color: darken($black, 3);
+      }
+      &.da-contentSelectedText {
+        & > .da-marginReset:first-child {
+          &:before {
+            background-color: rgba(#fff, 0.9);
+          }
+        }
+        background-color: darken($primary, 10);
+        &:hover {
+          background-color: darken($primary, 8);
+        }
+      }
+      > .da-marginReset:first-child {
+        position: relative;
+        padding-right: $marginReset-size - 6px;
+        &:before {
+          content: "";
+          $size: $height - 22px;
+          height: $size;
+          width: $size;
+          background-color: rgba(#fff, 0.35);
+          position: absolute;
+          left: 2px;
+          top: -$size/2;
+          border-radius: 50%;
+        }
+        svg {
+          display: none;
+        }
+      }
+    }
+  }
+  .da-wrapperDefaultText {
+    .da-nameDefaultText,
+    .da-nameDefaultVoice,
+    .da-nameLockedText,
+    .da-nameLockedVoice {
+      @include transition(color 0.12s ease-out);
+      color: rgba(lighten($primary, 15), 0.5);
+    }
+  }
+  .da-wrapperHoveredText {
+    .da-nameHoveredText,
+    .da-nameHoveredVoice {
+      @include transition(color 0.12s ease-out);
+      color: rgba(lighten($primary, 20), 0.9);
+    }
+  }
+  .da-wrapper {
+    .da-unread {
+      @include transition(all 0.12s ease-out);
+      top: 3px;
+      left: 3px;
+      bottom: 0;
+      margin-top: 0;
+      height: auto;
+      border-radius: 50%;
+      width: $height - 8px;
+      height: $height - 8px;
+      line-height: 1;
+      background-color: rgba(lighten($primary, 20), 0.6);
+      & + .da-content {
+        .da-marginReset:first-child {
+          &:before {
+            background-color: rgba(#fff, 0.9);
+          }
+          padding-right: $marginReset-size;
+        }
+      }
+    }
+  }
+  .da-wrapperUnreadText {
+    .da-nameUnreadText {
+      color: rgba(lighten($primary, 25), 1);
+    }
+  }
+}

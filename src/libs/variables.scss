@@ -1,10 +1,13 @@
 $black: #202225;
 $black-1: #212428;
-$primary: #7289da;
+$primary: crimson;
 $theme-name: "dda";
 $global-config: (
   radius: 8px,
-  theme-name: "Discord Dark Koi"
+  theme-name: "Discord Dark Koi",
+  primary: $primary,
+  black: $black,
+  black-accent: $black-1
 );
 @function config($key, $default...) {
   @if (map-has-key($map: $global-config, $key: $key)) {
@@ -26,6 +29,6 @@ $global-config: (
   @include makeVar("role-list-height", 160px);
   @include makeVar(
     "custom-background",
-    "url(https://i.mavis.moe/f/KltlGh9rGZ/wallhaven-735611.png)"
+    "url(https://alpha.wallhaven.cc/wallpapers/full/wallhaven-738626.jpg)"
   );
 }
