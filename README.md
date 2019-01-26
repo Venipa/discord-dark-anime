@@ -4,16 +4,23 @@
 
 ### Get Started
 
+#### For Normies :^)
+
+1. Go to [/releases/import/, right click and save as...](https://raw.githubusercontent.com/Venipa/discord-dark-anime/master/releases/import/discord-dark-anime.theme.css)
+2. Move the downloaded file to your Better Discord instance
+   - Windows Theme Folder located at: %appdata%\BetterDiscord\themes
+     - Make sure the css file is named theme.css at the end
+3. Activate the Theme in BetterDiscord
+
+#### For Developers or NPM experienced Users
+
 ```
 1. git clone
 2. npm i
+ - (optional) make changes to the variables.scss for the ultimate customization
 3. npm run production
 4. waiting until its finished
 5. parsed file located in dist. (core.theme.css)
-or
-1. go to /releases
-2. download latest version
-3. extract core.theme.css to your themes folder
 ```
 
 Tools used for CSS Injection:
@@ -21,7 +28,7 @@ Tools used for CSS Injection:
 
 ## Server
 
-![](https://i.mavis.moe/f/YG4QM5PeYw/discord-2019-01-19-00-44-59.png)
+![](https://i.mavis.moe/f/F20bBLfaTO/discord-2019-01-26-00-52-44.png)
 
 ## Customization
 
@@ -33,20 +40,16 @@ Tools used for CSS Injection:
 
 ## User Profile
 
-![](https://i.mavis.moe/f/sz4m1qMKq0/discord-2019-01-17-19-34-15.png)
+![](https://i.mavis.moe/f/DYVa1FSPNJ/2019-01-26-00-58-12.gif)
 
 ## Store
 
-![](https://i.mavis.moe/f/0cyovpf142/2019-01-17-19-34-59.png)
+![](https://i.mavis.moe/f/fRFt7erqmd/2019-01-26-00-56-51.png)
 
 ## Settings
 
-![](https://i.mavis.moe/f/gjJC0MYy5D/discord-2019-01-17-19-35-46.png)
-
-## Server Settings
-
-![](https://i.mavis.moe/f/D0hyMSI37A/discord-2019-01-17-19-36-10.png)
+![](https://i.mavis.moe/f/BpenGm84R0/2019-01-26-00-54-36.png)
 
 ## Member Selected
 
-![](https://i.mavis.moe/f/9YgPZ4XZhh/discord-2019-01-17-19-36-49.png)
+![](https://i.mavis.moe/f/vLZoroykAD/2019-01-26-00-53-39.gif)
