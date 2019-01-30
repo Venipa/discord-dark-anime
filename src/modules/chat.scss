@@ -19,6 +19,11 @@
     padding-top: 5px;
     padding-bottom: 5px;
     @include border-radius(config("radius"));
+    .da-container {
+      .da-icon + .da-content {
+        margin-left: $outbound - $leftpad/2;
+      }
+    }
     &:before {
       content: "";
       position: absolute;
@@ -44,7 +49,7 @@
         content: "";
         position: absolute;
         width: $overlapSize + ($outbound - $overlapSize) + 5px;
-        height: $overlapSize + 10px;
+        height: $overlapSize + $leftpad/2;
         @include border-left-radius(config("radius"));
         left: 0;
         top: 0;
@@ -72,10 +77,10 @@
       margin-bottom: 0;
       &:first-of-type {
         position: relative;
-        padding-top: 10px;
+        padding-top: 5px;
       }
       &:last-of-type {
-        padding-bottom: 10px;
+        padding-bottom: 5px;
       }
       .da-headerCozy {
         .da-avatar {

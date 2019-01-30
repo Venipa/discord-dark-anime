@@ -13,3 +13,36 @@
     }
   }
 }
+.da-button {
+  &[class*="colorGreen-"],
+  &[class*="colorBrand-"] {
+    &[class*="lookFilled-"] {
+      @include linear-gradient(
+        90deg,
+        config("primary"),
+        lighten(config("primary"), 15)
+      );
+      background-size: 200%;
+      background-position: right;
+      @include transition(all 0.12s ease-out);
+      &:hover {
+        background-position-x: 20%;
+      }
+    }
+  }
+}
+.da-slider {
+  .da-bar > .da-barFill {
+    background: config("primary");
+  }
+  .da-track {
+    & > .da-grabber {
+      $size: 18px;
+      @include border-radius(50%);
+      height: $size;
+      width: $size;
+      margin-left: -($size/2);
+      margin-top: -($size/2);
+    }
+  }
+}

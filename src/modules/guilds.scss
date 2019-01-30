@@ -3,8 +3,13 @@ $guildSettings: (
   badge-fontSize: 10px,
   guild-wrapper-width: 60px
 );
+
+@function gConfig($keys) {
+  @return get($keys, $guildSettings);
+}
+
 .da-guildsWrapper {
-  width: map-get($map: $guildSettings, $key: "guild-wrapper-width");
+  width: gConfig("guild-wrapper-width");
   .da-guilds {
     padding: 8px 0 8px 10px;
   }
@@ -15,7 +20,7 @@ $guildSettings: (
     }
     &.da-guildSeparator:after {
       left: -40px;
-      width: map-get($map: $guildSettings, $key: "guild-wrapper-width") + 40px;
+      width: gConfig("guild-wrapper-width") + 40px;
     }
     margin-left: -6px;
   }
@@ -40,7 +45,7 @@ $imageRadius: 4px;
       & > .da-guild,
       & > .da-guild > .da-guildsError,
       .da-guildInner a {
-        @include size(map-get($guildSettings, "icon-size"));
+        @include size(gConfig("icon-size"));
       }
     }
     .da-badge {
@@ -50,7 +55,7 @@ $imageRadius: 4px;
       // $selectedLine: ((map-get($guildSettings, 'icon-size') + 5px) / 2);
       // height: $selectedLine;
       // margin-top: ($selectedLine / 2) * -1; // background: lighten($primary, 10);
-      height: map-get($guildSettings, "icon-size") + 16px;
+      height: gConfig("icon-size") + 16px;
       /* margin-top: -10px; */
       background: rgba(#fff, 0.1);
       width: 300%;
@@ -59,14 +64,14 @@ $imageRadius: 4px;
       border-radius: 0px !important;
     }
     &:not(.da-dms) {
-      @include size(map-get($guildSettings, "icon-size"));
+      @include size(gConfig("icon-size"));
     }
     .da-guildInner {
-      line-height: map-get($guildSettings, "icon-size");
+      line-height: gConfig("icon-size");
       &,
       & > a,
       .da-iconSizeLarge {
-        @include size(map-get($guildSettings, "icon-size"));
+        @include size(gConfig("icon-size"));
       }
       &,
       .da-guildIcon {
@@ -75,6 +80,13 @@ $imageRadius: 4px;
     }
   }
   & > .da-guild {
+    &.da-selected:first-child {
+      .da-guildInner {
+        &[style*="background-color"] {
+          background-color: transparent !important;
+        }
+      }
+    }
     &:first-child {
       .da-badge {
         top: -5px;
@@ -82,6 +94,13 @@ $imageRadius: 4px;
         bottom: initial;
       }
       .da-guildInner {
+        @include transition(all 0.12s ease-out);
+        &[style*="background-color"] {
+          background-color: config("dark") !important;
+        }
+        &:hover {
+          background-color: config("primary") !important;
+        }
         a {
           position: relative;
           &:before {

@@ -1,0 +1,31 @@
+.bd-pfbtn,
+.bda-slist .bda-footer .bda-settings-button {
+  user-select: none;
+  background-color: lighten(config("dark"), 5);
+  padding: 5px 10px;
+  line-height: 1;
+  @include shadow(1);
+  @include transition(all 0.12s ease-out);
+  will-change: color, background-color, box-shadow;
+  &:hover {
+    @include shadow(3);
+    @include transform(translateY(-1px));
+    &:active {
+      @include shadow(2);
+      @include transform(translateY(0));
+    }
+  }
+}
+.bda-controls,
+.ui-switch-item {
+  .ui-switch-wrapper {
+    .ui-switch {
+      &:before {
+        top: 2px !important;
+      }
+      &.checked {
+        background: config("primary") !important;
+      }
+    }
+  }
+}

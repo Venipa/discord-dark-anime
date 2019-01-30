@@ -21,6 +21,7 @@
   @import "modals.scss";
   @import "popouts.scss";
   @import "buttons.scss";
+  @import "private-channels.scss";
 
   .da-layers,
   .da-layer,
@@ -60,3 +61,4 @@
 
 @import "contextmenu.scss";
 @import "app-bar.scss";
+@import "bd-plugins/_base.scss";

@@ -13,9 +13,9 @@ $global-config: (
       height: 42px
     )
   ),
-  message-user-overlap: false,
+  message-user-overlap: true,
   message: (
-    avatar-size: 40px
+    avatar-size: 36px
   )
 );
 @function get($key, $map) {
