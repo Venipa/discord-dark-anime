@@ -87,11 +87,56 @@
           width: 0;
           padding: 0;
           margin: 0 0 0 $leftpad;
+          &:hover {
+            opacity: 1;
+          }
         }
         .da-avatar > .da-image {
           margin-left: -$outbound;
           height: $avatarSize;
           width: $avatarSize;
+          &[style*="avatars/#{config('ownerId')}"] {
+            &:hover {
+              &:before {
+                visibility: visible;
+                @include transform(translate(14px, -50%));
+                opacity: 1;
+              }
+            }
+            position: relative;
+            $ownerIconSize: 20px;
+            &:before {
+              content: "#{config('theme-name')} #{config('ownerName')}";
+              position: absolute;
+              top: 50%;
+              left: 100%;
+              background-color: config("primary");
+              padding: 10px 12px;
+              @include transform(translate(0, -50%));
+              @include border-radius(config("radius"));
+              @include shadow(3);
+              @include transition(
+                opacity 0.2s ease-out,
+                transform 0.12s ease-out 0.1s
+              );
+              color: #fff;
+              white-space: pre;
+              visibility: hidden;
+              opacity: 0;
+            }
+            &:after {
+              content: "";
+              position: absolute;
+              bottom: -25%;
+              left: -$ownerIconSize/4;
+              background-image: url("/src/resources/logo@0,25x.png");
+              background-position: center;
+              background-size: contain;
+              background-repeat: no-repeat;
+              height: $ownerIconSize;
+              width: $ownerIconSize;
+            }
+          }
         }
       }
       .da-contentCozy {
@@ -145,7 +190,8 @@
     right: 0;
     bottom: 0;
     background-image: parseVar("custom-background");
-    background-size: cover;
+    background-size: parseVar("custom-background-size");
+    background-position: parseVar("custom-background-position");
     z-index: 0;
     opacity: 0.1;
   }

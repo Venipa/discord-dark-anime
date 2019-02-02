@@ -11,6 +11,9 @@
    - Windows Theme Folder located at: %appdata%\BetterDiscord\themes
      - Make sure the css file is named theme.css at the end
 3. Activate the Theme in BetterDiscord
+4. (Optional) Install Theme Settings Plugin (I do not take any blame if anything happens)
+   - Download here: [betterdiscord.net Theme Settings Plugin Download](https://betterdiscord.net/ghdl?id=2619)
+   - Move the file with a plugin.js suffix to your plugins folder (Windows: %appdata%\BetterDiscord\plugins)
 
 #### For Developers or NPM experienced Users
 

@@ -16,6 +16,15 @@ $global-config: (
   message-user-overlap: true,
   message: (
     avatar-size: 36px
+  ),
+  ownerId: "442612628104151040",
+  ownerName: "Theme Owned by Cascade#0001",
+  defaults: (
+    background: (
+      source: "https://alpha.wallhaven.cc/wallpapers/full/wallhaven-740792.jpg",
+      position: center,
+      size: cover
+    )
   )
 );
 @function get($key, $map) {
@@ -41,6 +50,14 @@ $global-config: (
   @include makeVar("role-list-height", 160px);
   @include makeVar(
     "custom-background",
-    "url(https://alpha.wallhaven.cc/wallpapers/full/wallhaven-738626.jpg)"
+    "url(#{config('defaults.background.source')})"
+  );
+  @include makeVar(
+    "custom-background-position",
+    config("defaults.background.position")
+  );
+  @include makeVar(
+    "custom-background-size",
+    config("defaults.background.size")
   );
 }
