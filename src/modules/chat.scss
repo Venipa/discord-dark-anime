@@ -96,15 +96,15 @@
           height: $avatarSize;
           width: $avatarSize;
           &[style*="avatars/#{config('ownerId')}"] {
+            position: relative;
+            $ownerIconSize: 20px;
             &:hover {
               &:before {
                 visibility: visible;
-                @include transform(translate(14px, -50%));
+                @include transform(translate(14px, -50%) scale(1));
                 opacity: 1;
               }
             }
-            position: relative;
-            $ownerIconSize: 20px;
             &:before {
               content: "#{config('theme-name')} #{config('ownerName')}";
               position: absolute;
@@ -112,7 +112,8 @@
               left: 100%;
               background-color: config("primary");
               padding: 10px 12px;
-              @include transform(translate(0, -50%));
+              transform-origin: left;
+              @include transform(translate(0, -50%) scale(0.875));
               @include border-radius(config("radius"));
               @include shadow(3);
               @include transition(
@@ -123,6 +124,7 @@
               white-space: pre;
               visibility: hidden;
               opacity: 0;
+              overflow: hidden;
             }
             &:after {
               content: "";
@@ -141,7 +143,6 @@
       }
       .da-contentCozy {
         margin-left: $leftpad;
-
         .da-isMentionedCozy {
           &.da-isMentioned,
           &:after {
@@ -289,6 +290,16 @@
       bottom: 100%;
       left: 0;
       width: 100%;
+    }
+  }
+}
+.da-search {
+  .da-searchBar {
+    background-color: darken(config(dark), 3);
+    @include box-shadow(0 0 0 0 lighten(config(dark), 5));
+    @include transition(box-shadow 0.12s ease-out);
+    &:hover {
+      @include box-shadow(0 0 0 1px lighten(config(dark), 5));
     }
   }
 }

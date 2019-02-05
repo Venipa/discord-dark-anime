@@ -61,3 +61,11 @@ $global-config: (
     config("defaults.background.size")
   );
 }
+$guildSettings: (
+  icon-size: 35px,
+  badge-fontSize: 10px,
+  guild-wrapper-width: 60px
+);
+@function gConfig($keys) {
+  @return get($keys, $guildSettings);
+}

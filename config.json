@@ -4,7 +4,8 @@
     "destination": "dist/"
   },
   "github": {
-    "raw": "https://raw.githack.com/Venipa/",
+    "raw": "https://rawcdn.githack.com/Venipa/",
+    "rawDev": "https://raw.githack.com/Venipa/",
     "profile": "https://github.com/Venipa/",
     "repository": "discord-dark-anime/",
     "fileRoot": "master/"

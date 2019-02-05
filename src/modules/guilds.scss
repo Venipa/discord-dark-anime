@@ -1,17 +1,11 @@
-$guildSettings: (
-  icon-size: 35px,
-  badge-fontSize: 10px,
-  guild-wrapper-width: 60px
-);
-
-@function gConfig($keys) {
-  @return get($keys, $guildSettings);
-}
-
 .da-guildsWrapper {
-  width: gConfig("guild-wrapper-width");
+  width: gConfig("guild-wrapper-width") - 5px;
+
   .da-guilds {
     padding: 8px 0 8px 10px;
+  }
+  .da-guildSeparator {
+    margin-bottom: 6px;
   }
   .da-guildSeparator,
   .da-friendsOnline {
@@ -22,7 +16,7 @@ $guildSettings: (
       left: -40px;
       width: gConfig("guild-wrapper-width") + 40px;
     }
-    margin-left: -6px;
+    margin-left: -8px;
   }
 }
 $imageRadius: 4px;
@@ -62,6 +56,10 @@ $imageRadius: 4px;
       left: -100%;
       top: 12px;
       border-radius: 0px !important;
+
+      .da-guildIcon {
+        border-radius: $imageRadius + 12px !important;
+      }
     }
     &:not(.da-dms) {
       @include size(gConfig("icon-size"));
@@ -75,7 +73,7 @@ $imageRadius: 4px;
       }
       &,
       .da-guildIcon {
-        border-radius: $imageRadius + 6px !important;
+        border-radius: $imageRadius + 6px;
       }
     }
   }
@@ -90,7 +88,7 @@ $imageRadius: 4px;
     &:first-child {
       .da-badge {
         top: -5px;
-        right: -15px;
+        right: -8px;
         bottom: initial;
       }
       .da-guildInner {

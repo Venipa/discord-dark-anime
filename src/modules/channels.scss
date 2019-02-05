@@ -34,13 +34,13 @@
         padding-right: $marginReset-size - 6px;
         &:before {
           content: "";
-          $size: $height - 22px;
+          $size: $height - 24px;
           height: $size;
           width: $size;
           background-color: rgba(#fff, 0.35);
           position: absolute;
-          left: 2px;
-          top: -$size/2;
+          left: 4px;
+          top: -4px;
           border-radius: 50%;
         }
         svg {
@@ -68,14 +68,14 @@
   .da-wrapper {
     .da-unread {
       @include transition(all 0.12s ease-out);
-      top: 3px;
-      left: 3px;
+      top: 8px;
+      left: 8px;
       bottom: 0;
       margin-top: 0;
       height: auto;
       border-radius: 50%;
-      width: $height - 8px;
-      height: $height - 8px;
+      width: $height - 16px;
+      height: $height - 16px;
       line-height: 1;
       background-color: rgba(lighten($primary, 20), 0.6);
       & + .da-content {

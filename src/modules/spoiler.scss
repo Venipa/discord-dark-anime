@@ -1,0 +1,31 @@
+.da-spoilerText {
+  &.da-hidden {
+    &:hover {
+      background-color: darken(config("primary"), 5);
+      @include box-shadow(inset 0 0 0 1px config("primary"));
+    }
+    display: inline-block;
+    background-color: config("primary");
+    position: relative;
+    &:before {
+      content: "";
+      // position: absolute;
+      // top: 50%;
+      // left: 50%;
+      // transform: translate(-50%, -50%);
+      // filter: blur(10px);
+    }
+    &:after {
+      content: "Spoiler";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0;
+      line-height: 1;
+      font-size: 0.875rem;
+      height: 100%;
+    }
+    @include border-radius(config("radius") / 2);
+  }
+}
