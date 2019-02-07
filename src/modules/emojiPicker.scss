@@ -1,11 +1,40 @@
 .da-emojiPicker {
-  border: 1px solid darken($black-1, 10);
+  border: 1px solid darken(config(dark), 10);
   height: 400px;
   border-radius: 8px;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  place-content: space-between;
+  & > .da-header {
+    flex-wrap: wrap;
+    .da-searchBar {
+      border: 0px solid transparent;
+      border-radius: 0;
+      .da-searchBarIcon {
+        margin-top: 7px;
+        margin-bottom: 7px;
+        height: 18px;
+        width: 18px;
+      }
+      flex: 1 1 100%;
+      margin: 0;
+      padding: 0;
+      input {
+        height: 32px;
+        border: 0px solid transparent;
+        border-radius: 0;
+        // line-height: 18px;
+      }
+    }
+    .da-diversitySelector {
+      display: none;
+    }
+  }
   .da-diversitySelector {
     .da-popout {
-      background-color: $black-1;
-      border: 1px solid lighten($black-1, 5);
+      background-color: config(dark);
+      border: 1px solid lighten(config(dark), 5);
     }
   }
   .da-searchBar {
@@ -13,14 +42,23 @@
     color: #fff;
     .da-searchBarInner {
       background: rgba(0, 0, 0, 0.2);
+      border-radius: 0px !important;
     }
   }
-  .da-stickyHeader {
-    background: transparent;
+  .da-categories {
+    & > .da-item {
+      height: auto;
+    }
+  }
+  .da-stickyHeader,
+  .da-category {
+    background: config(dark);
   }
   .da-emojiItem {
+    @include transition(all 0.12s ease-out);
     &.da-selected {
-      background-color: rgba($black-1, 0.15) !important;
+      background-color: rgba(config(dark), 0.15) !important;
+      @include border-radius(config(radius));
     }
   }
   background: parseVar("default");

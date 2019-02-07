@@ -6,7 +6,7 @@
     background-color: transparent;
   }
   .da-typing {
-    padding: 0 18px;
+    padding: 4px 18px;
   }
 }
 .da-messagesWrapper {
@@ -284,12 +284,14 @@
       }
     }
     .da-typing {
-      box-shadow: inset 1000px 0 500px -510px $black-1;
+      background: transparent;
       padding: 0 18px;
       position: absolute;
       bottom: 100%;
-      left: 0;
-      width: 100%;
+      right: 0;
+      left: initial;
+      width: initial;
+      max-width: 100%;
     }
   }
 }
@@ -300,6 +302,84 @@
     @include transition(box-shadow 0.12s ease-out);
     &:hover {
       @include box-shadow(0 0 0 1px lighten(config(dark), 5));
+    }
+  }
+}
+.da-messagesWrapper {
+  .da-newMessagesBar {
+    @include border-radius(config(radius));
+    @include transition(all 0.12s ease-out);
+    will-change: box-shadow, color, transform;
+    background-color: rgba(lighten(config(dark), 8), 0.75);
+    bottom: 10px;
+    top: initial;
+    left: initial;
+    padding-left: 10px;
+    &:hover {
+      transform: translateY(-1px);
+      @include shadow(3);
+    }
+    &:before {
+      content: "";
+      height: 16px;
+      width: 16px;
+      margin: 6px 0;
+      background-image: url(/src/resources/icons/1x/round_message_white_24dp.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      flex: 0 0 auto;
+      flex-direction: row;
+      justify-content: center;
+      align-self: center;
+    }
+    & > button {
+      &:last-of-type {
+        @include linear-gradient(
+          to right,
+          transparent,
+          rgba(config(primary), 0.25)
+        );
+        @include border-right-radius(config(radius));
+        &:hover {
+          @include linear-gradient(
+            to right,
+            transparent,
+            rgba(config(primary), 0.5)
+          );
+        }
+      }
+    }
+  }
+  .da-jumpToPresentBar {
+    @include border-radius(config(radius));
+    @include transition(all 0.12s ease-out);
+    will-change: box-shadow, color, transform;
+    background-color: rgba(lighten(config(dark), 8), 0.75);
+    left: initial;
+    padding-left: 10px;
+    bottom: 48px;
+    @include shadow(1);
+    &:before {
+      content: "";
+      height: 16px;
+      width: 16px;
+      margin: 6px 0;
+      background-image: url(/src/resources/icons/round_speaker_notes_white_24dp.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      flex: 0 0 auto;
+      flex-direction: row;
+      justify-content: center;
+      align-self: center;
+    }
+    &:hover {
+      transform: translateY(-1px);
+      @include shadow(3);
+    }
+    button:last-of-type {
+      display: none;
     }
   }
 }
