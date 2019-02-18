@@ -22,9 +22,25 @@
     background-position-x: -200%;
   }
 }
+$accentColor: config(primary);
+.da-topSectionPlaying {
+  & .da-button {
+    $accentColor: lighten(#7289da, 5);
+  }
+}
+.da-topSectionSpotify,
+.da-topSectionXbox {
+  & .da-button {
+    $accentColor: lighten(#107c10, 5);
+  }
+}
 .da-button {
   &[class*="colorGreen-"],
-  &[class*="colorBrand-"] {
+  &[class*="colorBrand-"],
+  &.da-buttonInvertedPurple {
+    &.da-buttonInvertedPurple {
+      $accentColor: #593695;
+    }
     &[class*="lookInverted-"] {
       position: relative;
       &:before {
@@ -36,11 +52,11 @@
         bottom: -1px;
         @include linear-gradient(
           90deg,
-          config("primary"),
-          config("primary"),
-          lighten(config("primary"), 40),
-          config("primary"),
-          config("primary")
+          $accentColor,
+          $accentColor,
+          lighten($accentColor, 40),
+          $accentColor,
+          $accentColor
         );
         border-radius: config(radius);
         z-index: -1;
@@ -51,7 +67,7 @@
       }
       background-color: config(dark);
       border-radius: config(radius);
-      color: lighten(config("primary"), 40);
+      color: lighten($accentColor, 40);
       &:hover {
         &:before {
           animation-duration: 1s;
@@ -60,11 +76,7 @@
       }
     }
     &[class*="lookFilled-"] {
-      @include linear-gradient(
-        90deg,
-        config("primary"),
-        lighten(config("primary"), 15)
-      );
+      @include linear-gradient(90deg, $accentColor, lighten($accentColor, 15));
       background-size: 200%;
       background-position: right;
       @include transition(all 0.12s ease-out);

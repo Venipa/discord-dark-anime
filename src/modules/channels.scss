@@ -93,18 +93,70 @@
       color: rgba(lighten($primary, 25), 1);
     }
   }
-  & > .da-container {
-    & > .da-accountDetails + [class*="horizontal-"] {
-      & > * {
-        &:not(:last-child) {
-          margin-right: 2px;
+  & > .da-container:last-child {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        rgba(config(primary), 0),
+        rgba(config(primary), 1),
+        rgba(config(primary), 0)
+      );
+    }
+    flex: 1 1 100px;
+    min-height: 100px;
+    max-height: 100px;
+    $transition: cubic-bezier(0.29, 0.44, 0, 1.21);
+    @include transition(flex 0.35s $transition, transform 0.35s $transition);
+    transform: translateY(30px);
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin: 10px 0;
+    $accountMargin: 30px;
+    & > .da-wrapper {
+      align-self: center;
+      margin-top: 10px;
+      margin-left: $accountMargin + 2px;
+      flex: 1 0 initial;
+    }
+    &:hover {
+      transform: translateY(0);
+      & > .da-accountDetails {
+        & + [class*="horizontal-"] {
+          opacity: 1;
         }
       }
-      .da-button {
-        @include border-radius(50%);
-        @include transition(all 0.12s ease-out);
-        &:hover {
-          background-color: rgba(#fff, 0.15);
+    }
+    & > .da-accountDetails {
+      margin-top: 14px;
+      flex: 1 0 auto;
+      text-align: right;
+      margin-right: $accountMargin;
+      & > .username {
+        margin-right: 0;
+        max-width: initial;
+      }
+      & + [class*="horizontal-"] {
+        @include transition(all 0.1s ease);
+        opacity: 0;
+        display: flex;
+        flex: 0 0 100% !important;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-evenly;
+        .da-button {
+          @include border-radius(50%);
+          @include transition(all 0.12s ease-out);
+          &:hover {
+            background-color: rgba(#fff, 0.15);
+          }
         }
       }
     }

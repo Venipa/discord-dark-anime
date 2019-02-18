@@ -21,7 +21,7 @@
     @include border-radius(config("radius"));
     .da-container {
       .da-icon + .da-content {
-        margin-left: $outbound - $leftpad/2;
+        margin-left: $outbound - $leftpad * 3;
       }
     }
     &:before {

@@ -65,7 +65,7 @@ $global-config: (
   );
   @include makeVar(
     "modal-header-image",
-    "url(#{config(" defaults.headerImage.source ")})"
+    "url(#{config('defaults.headerImage.source')})"
   );
   @include makeVar("modal-header-image-opacity", 0.2);
   @include makeVar("modal-header-image-position", 0);
