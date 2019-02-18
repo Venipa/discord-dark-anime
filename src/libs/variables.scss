@@ -68,7 +68,7 @@ $global-config: (
     "url(#{config(" defaults.headerImage.source ")})"
   );
   @include makeVar("modal-header-image-opacity", 0.2);
-  @include makeVar("modal-header-image-position", 0 0);
+  @include makeVar("modal-header-image-position", 0);
 }
 $guildSettings: (
   icon-size: 35px,

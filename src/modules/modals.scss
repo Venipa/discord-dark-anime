@@ -33,8 +33,13 @@
     }
     .da-topSection,
     .da-topSectionPlaying,
+    .da-topSectionSpotify,
     .da-topSectionNormal {
       position: relative;
+      a.da-anchor {
+        color: lighten(config(primary), 20);
+        text-shadow: 0 0 2px lighten(config(primary), 30);
+      }
       &:before,
       &:after {
         content: "";
@@ -68,7 +73,7 @@
         }
       }
       &:before {
-        background: config(dark);
+        background: config("dark");
         z-index: -2;
       }
       background-image: url("/src/resources/triangles.png");
@@ -88,16 +93,16 @@
           height: 1px;
           background: linear-gradient(
             to right,
-            rgba(config(primary), 0),
-            rgba(config(primary), 1),
-            rgba(config(primary), 0)
+            rgba(config("primary"), 0),
+            rgba(config("primary"), 1),
+            rgba(config("primary"), 0)
           );
         }
       }
       .da-tabBar {
         & > .da-tabBarItem {
           &.da-itemSelected {
-            border-color: config(primary) !important;
+            border-color: config("primary") !important;
           }
         }
       }
