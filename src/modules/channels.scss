@@ -93,4 +93,20 @@
       color: rgba(lighten($primary, 25), 1);
     }
   }
+  & > .da-container {
+    & > .da-accountDetails + [class*="horizontal-"] {
+      & > * {
+        &:not(:last-child) {
+          margin-right: 2px;
+        }
+      }
+      .da-button {
+        @include border-radius(50%);
+        @include transition(all 0.12s ease-out);
+        &:hover {
+          background-color: rgba(#fff, 0.15);
+        }
+      }
+    }
+  }
 }

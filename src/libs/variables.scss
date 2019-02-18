@@ -24,6 +24,9 @@ $global-config: (
       source: "https://alpha.wallhaven.cc/wallpapers/full/wallhaven-740792.jpg",
       position: center,
       size: cover
+    ),
+    headerImage: (
+      source: "https://i.mavis.moe/f/enUGHYl3ij/chrome-2019-02-18-17-40-20.png"
     )
   )
 );
@@ -60,6 +63,12 @@ $global-config: (
     "custom-background-size",
     config("defaults.background.size")
   );
+  @include makeVar(
+    "modal-header-image",
+    "url(#{config(" defaults.headerImage.source ")})"
+  );
+  @include makeVar("modal-header-image-opacity", 0.2);
+  @include makeVar("modal-header-image-position", 0 0);
 }
 $guildSettings: (
   icon-size: 35px,
