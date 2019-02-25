@@ -1,6 +1,6 @@
 $black: #202225;
 $black-1: #212428;
-$primary: crimson;
+$primary: #707392;
 $theme-name: "dda";
 $global-config: (
   radius: 8px,
@@ -20,8 +20,11 @@ $global-config: (
   ownerId: "442612628104151040",
   ownerName: "Theme Owned by Cascade#0001",
   defaults: (
+    vertical-background: (
+      source: "https://alpha.wallhaven.cc/wallpapers/full/wallhaven-746411.jpg"
+    ),
     background: (
-      source: "https://alpha.wallhaven.cc/wallpapers/full/wallhaven-740792.jpg",
+      source: "https://alpha.wallhaven.cc/wallpapers/full/wallhaven-747431.png",
       position: center,
       size: cover
     ),
@@ -69,6 +72,16 @@ $global-config: (
   );
   @include makeVar("modal-header-image-opacity", 0.2);
   @include makeVar("modal-header-image-position", 0);
+  /* * Channel variables start */
+  @include makeVar(
+    "channel-background",
+    "url(#{config('defaults.vertical-background.source')})"
+  );
+  @include makeVar("channel-background-position", 50% 50%);
+  @include makeVar("channel-background-size", auto 100%);
+  @include makeVar("channel-background-opacity", 0.25);
+  @include makeVar("channel-background-blur", 4px);
+  /* * Channel variables end */
 }
 $guildSettings: (
   icon-size: 35px,

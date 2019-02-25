@@ -26,14 +26,16 @@
 
   .da-layers,
   .da-layer,
-  .da-channels,
-  .da-channels > .da-container,
   .da-headerBar,
   .da-messagesPopoutWrap > .da-header,
   .da-table > .da-header,
+  .da-channels > .da-privateChannels > .da-searchBar,
+  .da-channels .da-flexChild > .da-container > header.da-header,
   .da-titleWrapper > .da-title {
     background-color: $black-1;
   }
+  .da-channels,
+  .da-channels > .da-container,
   .da-messagesPopoutWrap .da-messageGroupWrapper .da-actionButtons {
     background-color: transparent;
     box-shadow: initial;

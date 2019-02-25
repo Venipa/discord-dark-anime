@@ -18,6 +18,9 @@
     position: relative;
     padding-top: 5px;
     padding-bottom: 5px;
+    &:last-child {
+      margin-bottom: 32px;
+    }
     @include border-radius(config("radius"));
     .da-container {
       .da-icon + .da-content {
@@ -32,9 +35,9 @@
       right: 0;
       height: 100%;
       width: calc(100% - #{$outbound});
-      $mediaWidth: 1200px;
+      $mediaWidth: 800px;
       @media only screen and (min-width: $mediaWidth) {
-        @include box-shadow(inset 1200px 0 500px -510px $msg-background);
+        @include box-shadow(inset $mediaWidth 0 500px -510px $msg-background);
       }
       @media only screen and (max-width: $mediaWidth) {
         background-color: $msg-background;
@@ -125,6 +128,7 @@
               visibility: hidden;
               opacity: 0;
               overflow: hidden;
+              z-index: 9999;
             }
             &:after {
               content: "";
@@ -183,6 +187,9 @@
 .da-chat {
   background: rgba(0, 0, 0, 0);
   position: relative;
+  & > .da-titleWrapper {
+    @include shadow(3);
+  }
   &:before {
     content: "";
     position: absolute;
@@ -194,7 +201,7 @@
     background-size: parseVar("custom-background-size");
     background-position: parseVar("custom-background-position");
     z-index: 0;
-    opacity: 0.1;
+    opacity: 0.25;
   }
   &,
   form {
@@ -204,24 +211,38 @@
     position: relative;
     margin-left: 0;
     margin-right: 0;
-    margin-top: 28px;
+    margin-top: 0;
     .da-channelTextArea {
       margin-bottom: 0;
       padding-top: 0;
+      background-color: rgba(config(dark), 0.5);
+      box-shadow: inset 0 4px 0 -2px config(primary);
+      .da-textArea {
+        max-height: 100px;
+      }
       .da-button {
         opacity: 0.7;
         &.da-attachButton {
-          $iconWidth: 24px;
+          $iconWidth: 18px;
+          margin: 8px;
           padding-left: $iconWidth - 6px;
           position: relative;
-          &:hover:before {
-            transform: scale(1);
+          &:hover {
+            &:before {
+              transform: scale(1);
+            }
+            &:focus,
+            &:active {
+              &:before {
+                transform: scale(1.1) !important;
+              }
+            }
           }
           &:before {
             @include transition(transform 0.12s ease-out);
             transform: scale(0.9);
             content: "";
-            background-image: url("/src/resources/icons/attach.png");
+            background-image: url("/src/resources/logo@0\,25x.png");
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
@@ -244,7 +265,6 @@
         // > .da-buttons {}
         background: transparent;
         border-radius: 0;
-        @include box-shadow(inset 1000px 0 500px -510px config("dark-accent"));
         @include transition(box-shadow 0.12s ease-out);
         // textarea.da-textArea {}
       }
