@@ -1,13 +1,38 @@
 &.da-popouts {
   .da-menu {
-    background-color: darken(config("dark"), 5);
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-height: 100%;
+      width: 100%;
+      background-color: lighten(config(primary), 20);
+      opacity: 0.15;
+      filter: blur(20px);
+      z-index: -1;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 100%;
+      background-image: url(/src/resources/triangles.png);
+      background-position: center;
+      background-size: contain;
+      z-index: -1;
+    }
+    background-color: rgba(darken(config(dark), 10), 0.8);
     & > .da-item {
       @include transition(
         background-color 0.12s ease-out,
         color 0.12s ease-out 0.12s
       );
       &:hover {
-        background-color: darken(config("dark"), 2);
+        background-color: transparent;
       }
     }
   }

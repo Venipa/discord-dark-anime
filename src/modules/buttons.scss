@@ -58,12 +58,12 @@ $accentColor: config(primary);
           $accentColor,
           $accentColor
         );
+        background-size: 200%;
+        animation: animate-background-primary 2s ease infinite;
         border-radius: config(radius);
         z-index: -1;
-        animation: animate-background-primary 2s ease infinite;
         @include transition(all 0.12s ease-out);
         will-change: top, left, right, top;
-        background-size: 200%;
       }
       background-color: config(dark);
       border-radius: config(radius);

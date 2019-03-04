@@ -37,25 +37,50 @@
       width: calc(100% - #{$outbound});
       $mediaWidth: 800px;
       @media only screen and (min-width: $mediaWidth) {
-        @include box-shadow(inset $mediaWidth 0 500px -510px $msg-background);
+        background: linear-gradient(
+          to right,
+          $msg-background 0%,
+          $msg-background 20%,
+          rgba($msg-background, 0) $mediaWidth
+        );
+        // @include box-shadow(inset $mediaWidth 0 500px -510px $msg-background);
       }
       @media only screen and (max-width: $mediaWidth) {
-        background-color: $msg-background;
+        background: $msg-background;
       }
       @include border-radius(config("radius"));
       z-index: -1;
     }
     $material-user-overlap: config("message-user-overlap");
     @if ($material-user-overlap) {
+      @include keyframes(afterUserBackground) {
+        0% {
+          background-position-x: 0;
+        }
+        100% {
+          background-position-x: -200%;
+        }
+      }
+      $accentColor: config(primary);
       &:after {
-        $overlapSize: $avatarSize + 20px;
+        $overlapSize: $avatarSize + 6px;
         content: "";
         position: absolute;
-        width: $overlapSize + ($outbound - $overlapSize) + 5px;
+        width: $overlapSize + $leftpad/2;
         height: $overlapSize + $leftpad/2;
-        @include border-left-radius(config("radius"));
-        left: 0;
-        top: 0;
+        @include border-radius(50%);
+        left: 6px;
+        top: 4px;
+        @include linear-gradient(
+          90deg,
+          $accentColor,
+          $accentColor,
+          lighten($accentColor, 40),
+          $accentColor,
+          $accentColor
+        );
+        background-size: 200%;
+        animation: afterUserBackground 2s ease infinite;
         background-color: $msg-background;
         z-index: -2;
       }
@@ -95,6 +120,14 @@
           }
         }
         .da-avatar > .da-image {
+          @if ($material-user-overlap) {
+            $imagebgwBorder: 0.25rem;
+            @include box-shadow(
+              0 0 0 $imagebgwBorder config(dark),
+              0 0 10px $imagebgwBorder - 0.05rem config(dark)
+            );
+            background-color: config(dark);
+          }
           margin-left: -$outbound;
           height: $avatarSize;
           width: $avatarSize;
@@ -197,9 +230,15 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: parseVar("custom-background");
-    background-size: parseVar("custom-background-size");
-    background-position: parseVar("custom-background-position");
+    @if (config(v2)) {
+      background-image: parseUrl(config("defaults.background.source"));
+      background-size: config("defaults.background.size");
+      background-position: config("defaults.background.position");
+    } @else {
+      background-image: parseVar("custom-background");
+      background-size: parseVar("custom-background-size");
+      background-position: parseVar("custom-background-position");
+    }
     z-index: 0;
     opacity: 0.25;
   }
@@ -213,10 +252,26 @@
     margin-right: 0;
     margin-top: 0;
     .da-channelTextArea {
+      position: relative;
+      padding: 5px 0;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        @include linear-gradient(
+          to right,
+          rgba(config(primary), 1),
+          rgba(lighten(config(primary), 20), 1) 20%,
+          rgba(config(primary), 1) 40%,
+          rgba(config(primary), 0) 50%
+        );
+      }
       margin-bottom: 0;
       padding-top: 0;
       background-color: rgba(config(dark), 0.5);
-      box-shadow: inset 0 4px 0 -2px config(primary);
       .da-textArea {
         max-height: 100px;
       }

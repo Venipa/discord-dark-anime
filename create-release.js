@@ -15,6 +15,7 @@ let importPath = path.resolve(releasePath, 'import');
 let distFile = path.resolve(config.paths.destination, config.coreStyle + '.css');
 let releaseFile = path.resolve(releasePath, config.coreStyle + '.css');
 let importFile = path.resolve(importPath, pkg.name + '.theme.css');
+let configFile = path.resolve(config.paths.config);
 
 if (!fs.existsSync(distPath) || !fs.existsSync(distFile)) {
     console.error('missing dist');
@@ -27,6 +28,7 @@ if (!fs.existsSync(importPath)) {
     fs.mkdirSync(importPath, 777);
 }
 fs.copyFileSync(distFile, releaseFile);
+fs.copyFileSync(configFile, path.resolve(releasePath, path.basename(configFile)));
 const dist = fs.readFileSync(releaseFile).toString();
 let distRx = dist.split('\n');
 if (distRx.length > 1) {

@@ -1,7 +1,9 @@
 let mix = require('laravel-mix');
+let hp = require('./webpack.helpers');
 let fs = require('fs');
 let header = require('./bd.json');
 let config = require('./config.json');
+let pkg = require('./package.json');
 var imageInliner = require('postcss-image-inliner');
 
 /*
@@ -18,17 +20,21 @@ let coreStyle = config.coreStyle;
 mix.setPublicPath('dist');
 mix.sass('src/' + coreStyle + '.scss', config.paths.destination);
 mix.setResourceRoot('src/resources');
-mix.options({
-  processCssUrls: true,
-  postCss: [
-    imageInliner({
-      assetPath: ['src/resources'],
-      maxFileSize: 1000000,
-      b64Svg: true,
-      strict: true
-    })
-  ]
-}).then(c => {
+mix
+  .options({
+    processCssUrls: true,
+    postCss: [
+      imageInliner({
+        assetPaths: ['src/resources'],
+        maxFileSize: 1024 * 1024 * 10,
+        b64Svg: true,
+        strict: false
+      })
+    ]
+  })
+  .then(c => {
+    let cssType = 'css';
+    hp.parseConfig(cssType);
     let destFile = 'dist/' + coreStyle + '.css';
     const data = fs.readFileSync(destFile);
     const fd = fs.openSync(destFile, 'w+');

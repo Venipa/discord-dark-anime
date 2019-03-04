@@ -3,6 +3,7 @@ $black-1: #212428;
 $primary: #707392;
 $theme-name: "dda";
 $global-config: (
+  v2: false,
   radius: 8px,
   theme-name: "Discord Dark Koi",
   primary: $primary,
@@ -21,10 +22,10 @@ $global-config: (
   ownerName: "Theme Owned by Cascade#0001",
   defaults: (
     vertical-background: (
-      source: "https://alpha.wallhaven.cc/wallpapers/full/wallhaven-746411.jpg"
+      source: "https://i.mavis.moe/f/HTqWhcEDQQ/wallhaven-746411.jpg"
     ),
     background: (
-      source: "https://alpha.wallhaven.cc/wallpapers/full/wallhaven-747431.png",
+      source: "https://alpha.wallhaven.cc/wallpapers/full/wallhaven-751008.png",
       position: center,
       size: cover
     ),
@@ -48,6 +49,9 @@ $global-config: (
 }
 @mixin makeVar($name, $value...) {
   --#{to-lower-case($string: $theme-name)}-#{$name}: #{$value};
+}
+@function parseUrl($url) {
+  @return url("#{$url}");
 }
 :root {
   @include makeVar("primary", $primary);

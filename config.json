@@ -1,7 +1,8 @@
 {
   "coreStyle": "core.theme",
   "paths": {
-    "destination": "dist/"
+    "destination": "dist/",
+    "config": "dist/config.json"
   },
   "github": {
     "raw": "https://rawcdn.githack.com/Venipa/",
