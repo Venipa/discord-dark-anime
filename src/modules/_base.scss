@@ -7,7 +7,13 @@
 @import "../libs/helpers/strip-unit";
 @import "../libs/variables.scss";
 @import "../libs/mixins.scss";
-
+@import url("https://fonts.googleapis.com/css?family=Product+Sans:300,400,500,700");
+html,
+body {
+  font-family: #{config("font.global.font")};
+  font-size: config("font.global.size");
+  letter-spacing: config("font.global.spacing");
+}
 .theme-dark {
   @import "scrollbar.scss";
   @import "main-menu.scss";

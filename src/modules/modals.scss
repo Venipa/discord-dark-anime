@@ -1,12 +1,108 @@
+.da-uploadArea {
+  & > .da-uploadDropModal {
+    & > .da-bgScale {
+      @include linear-gradient(
+        to right,
+        rgba(config(primary), 0),
+        rgba(config(primary), 0.3),
+        rgba(config(primary), 0)
+      );
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        height: 1px;
+        left: 0;
+        right: 0;
+        @include linear-gradient(
+          to right,
+          rgba(config(primary), 0),
+          rgba(config(primary), 0.3),
+          rgba(lighten(config(primary), 15), 1),
+          rgba(config(primary), 0.3),
+          rgba(config(primary), 0)
+        );
+      }
+      &:before {
+        top: 1px;
+      }
+      &:after {
+        bottom: 1px;
+      }
+    }
+    & > .da-inner {
+      border-width: 0px;
+      font-weight: 500;
+      & > .da-instructions {
+        font-size: 0.9rem;
+      }
+      & > .da-title {
+        margin-bottom: 8px;
+      }
+      & > .da-icons {
+        margin-bottom: 12px;
+        position: relative;
+        &:before {
+          content: "";
+          position: absolute;
+          top: 25%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-image: url(/src/resources/icons/2x/round_cloud_upload_white_48.png);
+          background-size: contain;
+          background-position: center;
+          height: 96px;
+          width: 96px;
+        }
+        & > div {
+          display: none;
+        }
+      }
+    }
+  }
+}
 .da-modal {
+  .da-footer {
+    &.da-hasSpoilers {
+      .da-checkbox {
+        @include transition(all 0.12s ease-in-out);
+        will-change: background-color;
+        &.da-checked {
+          background-color: config(dark);
+          svg {
+            polyline {
+              stroke: config(primary) !important;
+            }
+          }
+        }
+        border-color: lighten(config(dark), 5) !important;
+      }
+    }
+  }
   .da-inner {
-    & > .da-modal {
+    & > .da-modal,
+    .da-uploadModal {
       background: darken(config("dark"), 5);
+      & > .da-inner {
+        border-width: 0;
+        & > .da-file {
+          & > .da-image {
+            border-width: 0px;
+            @include shadow(2);
+          }
+        }
+      }
       & > .da-footer {
         background: darken(config("dark"), 5);
       }
     }
 
+    .da-channelTextAreaUpload {
+      & > .da-inner,
+      .da-uploadInput + textarea {
+        background-color: config(dark);
+      }
+    }
     .da-avatar {
       @keyframes animatestatus {
         0% {
