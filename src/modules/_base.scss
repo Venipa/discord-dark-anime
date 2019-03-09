@@ -29,6 +29,7 @@ body {
   @import "buttons.scss";
   @import "private-channels.scss";
   @import "spoiler.scss";
+  @import "server-discovery.scss";
 
   .da-layers,
   .da-layer,
@@ -50,6 +51,7 @@ body {
   .da-messagesPopoutWrap .da-messageGroupWrapper,
   .da-gameLibrary,
   .da-friendsTable,
+  .da-pageWrapper,
   [class^="applicationStore-"],
   .da-activityFeed {
     .da-card {

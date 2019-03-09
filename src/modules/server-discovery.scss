@@ -1,0 +1,99 @@
+.da-base .da-pageWrapper {
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+    z-index: 0;
+  }
+  &:before {
+    background-image: parseVar("custom-background");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+    opacity: 0.8;
+  }
+  &:after {
+    @include linear-gradient(to top, config(dark), rgba(config(dark), 0));
+    z-index: 1;
+  }
+  .da-bg {
+    display: none;
+  }
+  .da-scrollerWrap {
+    &,
+    .da-pageHeader,
+    .da-body {
+      z-index: 999;
+    }
+    .da-body {
+      .da-emptySearchResults {
+        background: transparent;
+      }
+      .da-search {
+        .da-searchBox {
+          background-color: config(dark);
+          @include box-shadow(inset 0 0 0 1px darken(config(dark), 5));
+          @include border-radius(config(radius));
+        }
+      }
+      .da-guildList {
+        & > .da-guildCard {
+          border-radius: config(radius) + 1px;
+          .da-outer {
+            position: relative;
+            border-radius: config(radius) + 1px;
+            &:before {
+              content: "";
+              position: absolute;
+              top: -2px;
+              left: -2px;
+              right: -2px;
+              bottom: -2px;
+              @include transition(all 0.15s ease-in-out);
+              $normalAccent: darken($accentColor, 20);
+              @include linear-gradient(
+                90deg,
+                $normalAccent,
+                $normalAccent,
+                lighten($normalAccent, 40),
+                $normalAccent,
+                $normalAccent
+              );
+              background-size: 200%;
+              animation: animate-background-primary 4s ease infinite;
+              border-radius: config(radius);
+              will-change: background;
+            }
+            &:hover {
+              &:before {
+                @include linear-gradient(
+                  90deg,
+                  $accentColor,
+                  $accentColor,
+                  lighten($accentColor, 40),
+                  $accentColor,
+                  $accentColor
+                );
+                animation: animate-background-primary 2s ease infinite;
+                background-size: 200%;
+                animation-duration: 0.7s;
+              }
+            }
+            .da-card {
+              border-radius: config(radius) - 1px;
+              &.da-cardHovered {
+                transform: translate(0);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
