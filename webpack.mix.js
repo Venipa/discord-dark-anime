@@ -5,6 +5,7 @@ let header = require('./bd.json');
 let config = require('./config.json');
 let pkg = require('./package.json');
 var imageInliner = require('postcss-image-inliner');
+const globImporter = require('node-sass-glob-importer');
 
 /*
  |--------------------------------------------------------------------------
@@ -17,9 +18,6 @@ var imageInliner = require('postcss-image-inliner');
  |
  */
 let coreStyle = config.coreStyle;
-mix.setPublicPath('dist');
-mix.sass('src/' + coreStyle + '.scss', config.paths.destination);
-mix.setResourceRoot('src/resources');
 mix
   .options({
     processCssUrls: true,
@@ -45,6 +43,11 @@ mix
       if (err) throw err;
     });
   });
+mix.setPublicPath('dist');
+mix.sass('src/' + coreStyle + '.scss', config.paths.destination, {
+  importer: [globImporter()]
+});
+mix.setResourceRoot('src/resources');
 // mix.webpackConfig({
 //   module: {
 //     rules: [

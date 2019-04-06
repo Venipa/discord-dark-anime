@@ -1,0 +1,37 @@
+.da-layers,
+.da-layer,
+.da-headerBar,
+.da-messagesPopoutWrap > .da-header,
+.da-table > .da-header,
+.da-channels > .da-privateChannels > .da-searchBar,
+.da-channels .da-flexChild > .da-container > header.da-header,
+.da-titleWrapper > .da-title {
+  background-color: $black-1;
+}
+.da-channels,
+.da-channels > .da-container,
+.da-messagesPopoutWrap .da-messageGroupWrapper .da-actionButtons {
+  background-color: transparent;
+  box-shadow: initial;
+}
+.da-messagesPopoutWrap,
+.da-messagesPopoutWrap .da-messageGroupWrapper,
+.da-gameLibrary,
+.da-friendsTable,
+.da-pageWrapper,
+[class^="applicationStore-"],
+.da-activityFeed {
+  .da-card {
+    background-color: darken($black, 8);
+  }
+  background-color: darken($black, 4);
+}
+.da-friendsTable {
+  margin-top: 0;
+}
+.da-button {
+  @include border-radius(config("radius"));
+}
+a {
+  color: config("primary");
+}
