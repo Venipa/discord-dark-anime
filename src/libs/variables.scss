@@ -1,6 +1,6 @@
 $black: #202225;
 $black-1: #212428;
-$primary: #707392;
+$primary: #bb4c4c;
 $theme-name: "dda";
 $global-config: (
   font: (
@@ -38,7 +38,8 @@ $global-config: (
       source: "https://i.mavis.moe/f/HTqWhcEDQQ/wallhaven-746411.jpg"
     ),
     background: (
-      source: "https://alpha.wallhaven.cc/wallpapers/full/wallhaven-751008.png",
+      source:
+        "https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-751008.png",
       position: center,
       size: cover
     ),

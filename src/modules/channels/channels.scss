@@ -23,7 +23,25 @@ $userbarHeight: 68px;
     @include shadow(3);
   }
   .da-containerDefault {
-    .da-content {
+    & > .da-wrapper {
+      &:hover:not([class*="modeSelected-"]) {
+        & > .da-content {
+          color: rgba(#fff, 0.675);
+          background-color: transparent;
+        }
+      }
+      &[class*="modeSelected-"] {
+        & > .da-content {
+          color: rgba(#fff, 1);
+          background-color: rgba($primary, 0.25);
+          svg.da-icon {
+            color: #fff;
+            opacity: 1;
+          }
+        }
+      }
+    }
+    & > .da-wrapper > .da-content {
       margin: 0;
       border-radius: 0px !important;
       @include transition(

@@ -1,10 +1,4 @@
-@import "../libs/helpers/deep-map-get";
-@import "../libs/helpers/deep-map-check";
-@import "../libs/helpers/deep-map-merge";
-@import "../libs/helpers/str-capitalize";
-@import "../libs/helpers/str-explode";
-@import "../libs/helpers/str-replace";
-@import "../libs/helpers/strip-unit";
+@import "../libs/helpers/*.scss";
 @import "../libs/variables.scss";
 @import "../libs/mixins.scss";
 @import url("https://fonts.googleapis.com/css?family=Product+Sans:300,400,500,700");

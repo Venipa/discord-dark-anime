@@ -114,6 +114,7 @@
       }
       & > .da-statusProfile {
         transform: scale(1);
+        visibility: hidden;
         &:before {
           content: "";
           position: absolute;
@@ -123,6 +124,7 @@
           bottom: 0;
           @include box-shadow(0 0 20px -3px #000);
           @include border-radius(50%);
+          visibility: visible;
         }
         animation: animatestatus 3s ease infinite;
       }

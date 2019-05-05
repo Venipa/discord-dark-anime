@@ -1,140 +1,162 @@
-$imageRadius: 4px;
-.da-message {
-  .da-wrapper {
-    border-radius: $imageRadius + 4px;
-  }
+$guildWrapper: 48px;
+$iconSub: 16px;
+$iconSize: $guildWrapper - $iconSub;
+$iconRad: config(radius);
+& > .da-layers > .da-layer:first-child > .da-container:first-child {
+  background: transparent;
 }
-.da-layers:first-child
-  > .da-layer:first-child
-  > .da-container:first-child
-  > .da-wrapper {
-  width: gConfig("guild-wrapper-width") - 5px !important;
-  .da-guilds {
-    padding: 8px 0 8px 10px;
+& > .da-layers > .da-layer:first-child > .da-container > .da-wrapper {
+  .da-unreadMentionsIndicatorBottom,
+  .da-unreadMentionsIndicatorTop {
+    max-width: $guildWrapper;
+    padding: 4px;
   }
-  .da-guildSeparator {
-    margin-bottom: 6px;
+  @include border-radius(0);
+  background-color: $black;
+  @include box-shadow(inset -2px 0 0 -1px lighten($black, 20));
+  width: 48px !important;
+  & > .da-scrollerWrap > .da-scroller {
+    padding-left: 0;
   }
-  .da-guildSeparator,
-  .da-friendsOnline {
-    &.da-friendsOnline {
-      margin-top: 16px;
+  & > .da-scrollerWrap > .da-scroller > .da-container,
+  & > .da-scrollerWrap > .da-scroller > .da-listItem {
+    &:nth-child(2) {
+      height: 4px;
     }
-    &.da-guildSeparator:after {
-      left: -40px;
-      width: gConfig("guild-wrapper-width") + 40px;
+    &:before {
+      width: 4px;
     }
-    margin-left: -16px;
-  }
-  .da-unreadMentionsIndicatorBottom {
-    width: calc(100% - 10px) !important;
-    bottom: -10px;
-  }
-  & {
-    & > .da-scrollerThemed > .da-scroller > .da-container:first-child,
-    & .da-guildSeparator ~ div:not([class*=""]),
-    & .da-guildSeparator ~ .da-container {
-      &.da-container:last-child {
-        margin-bottom: 30px;
+    &.da-selected {
+      &:before {
+        $selectedHeight: 20px;
+        height: $selectedHeight;
+        margin-top: -$selectedHeight/2;
       }
-      & > .da-dms,
-      & > .da-circleIconButton,
-      & > .da-guildsError,
-      & {
-        &.da-guildsError {
-          line-height: 32px;
-        }
-        & {
-          margin-top: 16px;
-        }
-        &.da-dms,
-        & {
-          &,
-          & > .da-guildsError,
-          .da-wrapper a,
-          .da-wrapper a > .da-icon {
-            @include size(gConfig("icon-size"));
-          }
-        }
-        .da-badge {
-          font-size: map-get($map: $guildSettings, $key: "badge-fontSize");
-        }
-        &.da-selected:before {
-          // $selectedLine: ((map-get($guildSettings, 'icon-size') + 5px) / 2);
-          // height: $selectedLine;
-          // margin-top: ($selectedLine / 2) * -1; // background: lighten($primary, 10);
-          height: gConfig("icon-size") + 16px;
-          /* margin-top: -10px; */
-          background: rgba(#fff, 0.1);
-          width: 300%;
-          left: -100%;
-          top: 12px;
-          border-radius: 0px !important;
-
-          .da-guildIcon {
-            border-radius: $imageRadius + 12px !important;
-          }
-        }
-        &:not(.da-dms) {
-          @include size(gConfig("icon-size"));
-        }
-        .d-dragfix > .da-wrapper {
-          line-height: gConfig("icon-size");
-          &,
-          & > a,
-          .da-iconSizeLarge {
-            @include size(gConfig("icon-size"));
-          }
-          &,
-          .da-guildIcon {
-            border-radius: $imageRadius + 6px;
-          }
+    }
+    margin: $iconSub/2;
+    & > .da-blobContainer,
+    & > .da-blob {
+      @include transition(transform 0.12s ease-out);
+    }
+    &:active {
+      & > .da-blobContainer,
+      & > .da-blob {
+        transform: scale(0.875);
+      }
+    }
+    &:before {
+      left: -6px;
+      z-index: 999;
+    }
+    margin-bottom: $iconSub;
+    & > .da-blobContainer > .da-wrapper > .da-svg > mask {
+      display: none;
+    }
+    &,
+    & > .da-dragfix > .da-wrapper,
+    & > .da-blobContainer,
+    & > .da-blobContainer > .da-wrapper {
+      &,
+      & .da-svg {
+        background-color: transparent !important;
+        @include border-radius($iconRad!important);
+      }
+    }
+    .da-homeButton,
+    & > .da-blob.da-wrapper .da-button {
+      $homeIconSize: $iconSize - 12px;
+      background-color: $black !important;
+      @include transition(background-color 0.2s ease-out);
+      &:hover {
+        background-color: $primary !important;
+      }
+      & > svg {
+        width: $homeIconSize;
+        height: $homeIconSize;
+      }
+    }
+    & > .da-pill {
+      margin-top: $iconSize / 4;
+      height: $iconSize / 2;
+      left: -8px;
+      & > .da-item {
+        background-color: $primary;
+        &[style*="translate3d(0px, 0px, 0px)"] {
+          @include border-radius(0 $iconRad $iconRad 0);
         }
       }
-      & {
-        &.da-selected:first-child {
-          .da-wrapper {
-            &[style*="background-color"] {
-              background-color: transparent !important;
-            }
-          }
-        }
-        &:first-child {
-          .da-badge {
-            top: -5px;
-            right: -8px;
-            bottom: initial;
-          }
-          .da-homeButton {
-            @include size(gConfig("icon-size"));
-            @include transition(all 0.12s ease-out);
-            &[style*="background-color"] {
-              background-color: config("dark") !important;
-            }
-            &:hover {
-              background-color: config("primary") !important;
-            }
-            a {
-              position: relative;
-              &:before {
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 0;
-                bottom: 0;
-                content: "";
-                background-image: url("/src/resources/logo@0,25x.png");
-                background-size: 50%;
-                background-repeat: no-repeat;
-                background-position: center;
-              }
-              svg {
-                display: none;
-              }
-            }
-          }
+    }
+    & > .da-blob.da-wrapper mask {
+      display: none;
+    }
+    & > .da-blob.da-wrapper .da-badgeWrapper {
+      top: -10px;
+      margin-left: 4px;
+    }
+    &,
+    .da-homeButton,
+    .da-homeButton > .da-homeLink,
+    .da-icon.da-guildIcon,
+    & > .da-blobContainer > .da-wrapper,
+    & > .da-blobContainer .da-svg,
+    & > .da-blob.da-wrapper .da-button,
+    & > .da-blob.da-wrapper foreignObject {
+      width: $iconSize;
+      height: $iconSize;
+      @include border-radius($iconRad!important);
+      &,
+      & .da-icon {
+        @include border-radius($iconRad!important);
+      }
+    }
+    &.da-selected {
+      .da-icon.da-guildIcon {
+        &:before {
+          opacity: 1;
+          @include transform(scale(1.15));
         }
       }
+    }
+    .da-icon.da-guildIcon {
+      position: relative;
+      @include box-shadow(0 0 20px -4px #000);
+      &,
+      &:before {
+        background-color: $black;
+      }
+      &:before {
+        content: "";
+        background-image: inherit;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @include border-radius($iconRad!important);
+        position: absolute;
+        z-index: -1;
+        opacity: 0.375;
+        @include transform(scale(1));
+        @include transition(all 0.2s ease-out);
+      }
+    }
+    & > .da-badge {
+      z-index: 5;
+      font-size: 0.675rem;
+      padding: 1px 4px;
+    }
+    & > .da-dragfix {
+      position: relative;
+      z-index: 0;
+    }
+    &,
+    & > .da-dragfix,
+    & > .da-dragfix > .da-wrapper,
+    & > .da-dragfix > .da-wrapper > a {
+      @include border-radius($iconRad!important);
+      overflow: initial;
     }
   }
 }
