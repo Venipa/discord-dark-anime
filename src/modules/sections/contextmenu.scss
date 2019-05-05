@@ -11,8 +11,10 @@
 
   .da-slider {
     .da-track {
+      top: 50%;
       right: 0px !important;
       left: 3px !important;
+      margin-top: 6px;
     }
     .da-grabber {
       background: parseVar("primary");
@@ -20,6 +22,7 @@
       width: 12px;
       margin-left: -7px;
       margin-top: 3px;
+      border-color: $black;
     }
   }
   .da-item {

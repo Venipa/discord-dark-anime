@@ -68,6 +68,7 @@ $global-config: (
   @return url("#{$url}");
 }
 :root {
+  @include makeVar("radius", config(radius));
   @include makeVar("primary", $primary);
   @include makeVar("default", $black);
   @include makeVar("default-alternative", $black-1);

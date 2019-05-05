@@ -198,6 +198,11 @@ $userbarHeight: 68px;
         rgba(config(primary), 0)
       );
     }
+    & > .da-wrapper[class*="avatar-"] {
+      & > .da-inner {
+        @include border-radius(config(radius));
+      }
+    }
     & > .da-accountDetails {
       z-index: 99;
       & + div {

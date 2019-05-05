@@ -18,11 +18,24 @@ $iconRad: config(radius);
   & > .da-scrollerWrap > .da-scroller {
     padding-left: 0;
   }
-  & > .da-scrollerWrap > .da-scroller > .da-container,
-  & > .da-scrollerWrap > .da-scroller > .da-listItem {
-    &:nth-child(2) {
-      height: 4px;
+  &
+    > .da-scrollerWrap
+    > .da-scroller
+    > div[style*="transform: scale"]
+    > .da-listItem,
+  & > .da-scrollerWrap > .da-scroller > .da-listItem:first-of-type {
+    .da-blob.da-wrapper > .da-badgeWrapper {
+      left: -100%;
+      margin-left: 20px;
     }
+  }
+  & > .da-scrollerWrap > .da-scroller > .da-container,
+  & > .da-scrollerWrap > .da-scroller > .da-listItem,
+  &
+    > .da-scrollerWrap
+    > .da-scroller
+    > div[style*="transform: scale"]
+    > .da-listItem {
     &:before {
       width: 4px;
     }
@@ -93,20 +106,38 @@ $iconRad: config(radius);
       top: -10px;
       margin-left: 4px;
     }
+    &.da-listItem:last-of-type {
+      margin-bottom: 52px;
+      & > .da-guildsError {
+        width: $iconSize;
+        height: $iconSize;
+      }
+    }
     &,
     .da-homeButton,
     .da-homeButton > .da-homeLink,
     .da-icon.da-guildIcon,
     & > .da-blobContainer > .da-wrapper,
     & > .da-blobContainer .da-svg,
+    & > .da-circleButtonMask .da-svg,
     & > .da-blob.da-wrapper .da-button,
-    & > .da-blob.da-wrapper foreignObject {
+    & > .da-blob.da-wrapper foreignObject,
+    & > .da-blob foreignObject > .da-wrapper,
+    & > .da-blob foreignObject > .da-wrapper > .da-icon {
       width: $iconSize;
       height: $iconSize;
       @include border-radius($iconRad!important);
       &,
       & .da-icon {
         @include border-radius($iconRad!important);
+      }
+    }
+
+    & > .da-circleButtonMask .da-svg .da-circleIconButton {
+      color: $primary;
+      &.da-selected {
+        background-color: $primary;
+        color: #fff;
       }
     }
     &.da-selected {
