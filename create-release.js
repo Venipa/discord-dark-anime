@@ -51,7 +51,7 @@ const releaseStyle = releaseTemplate
 .replace(':authorName', pkg.author)
 .replace(':packageVersion', pkg.version)
 .replace(':packageDescription', header.description)
-.replace(':releaseUrl', url.resolve(github.releaseUrl, config.coreStyle + '.css'));
+.replace(':releaseUrl', url.resolve(github.releaseUrl, config.coreStyle + '.css' + '?t=' + Date.now()));
 fs.writeFileSync(importFile, releaseStyle.toString());
 
 

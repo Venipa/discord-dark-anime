@@ -109,8 +109,8 @@ $iconRad: config(radius);
     &.da-listItem:last-of-type {
       margin-bottom: 52px;
       & > .da-guildsError {
-        width: $iconSize;
-        height: $iconSize;
+        max-width: $iconSize;
+        max-height: $iconSize;
       }
     }
     &,
@@ -124,8 +124,8 @@ $iconRad: config(radius);
     & > .da-blob.da-wrapper foreignObject,
     & > .da-blob foreignObject > .da-wrapper,
     & > .da-blob foreignObject > .da-wrapper > .da-icon {
-      width: $iconSize;
-      height: $iconSize;
+      max-width: $iconSize;
+      max-height: $iconSize;
       @include border-radius($iconRad!important);
       &,
       & .da-icon {
