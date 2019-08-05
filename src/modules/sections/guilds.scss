@@ -29,8 +29,49 @@ $iconRad: config(radius);
       margin-left: 20px;
     }
   }
+  & > .da-scrollerWrap > .da-scroller > .da-wrapper {
+    $folderIconSize: $iconSize - 6px;
+    width: $iconSize;
+    & > .da-expandedFolderBackground {
+      left: 8px;
+      width: $iconSize;
+    }
+    & > .da-listItem {
+      margin-bottom: 12px !important;
+      & > .da-pill {
+        height: $folderIconSize;
+        & + div > .da-wrapper {
+          &,
+          & > svg {
+            width: $iconSize;
+            height: $iconSize;
+          }
+        }
+      }
+      & + .da-expandedGuilds {
+        width: $iconSize + 16;
+        height: initial !important;
+        padding-bottom: 4px;
+        & > .da-listItem {
+          width: $iconSize + 16;
+          & > .da-pill {
+            height: $folderIconSize;
+          }
+          & > .da-blobContainer > .da-wrapper {
+            &,
+            & > svg {
+              width: $folderIconSize;
+              height: $folderIconSize;
+            }
+          }
+        }
+      }
+      // margin-bottom: $iconSub!important;
+    }
+  }
   & > .da-scrollerWrap > .da-scroller > .da-container,
   & > .da-scrollerWrap > .da-scroller > .da-listItem,
+  & > .da-scrollerWrap > .da-scroller > .da-wrapper > .da-listItem,
   &
     > .da-scrollerWrap
     > .da-scroller

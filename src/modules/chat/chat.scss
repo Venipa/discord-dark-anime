@@ -64,7 +64,8 @@
       @include border-radius(config("radius"));
       z-index: -1;
     }
-    $material-user-overlap: config("message-user-overlap");
+    $material-user-overlap: false;
+    // $material-user-overlap: config("message-user-overlap");
     @if ($material-user-overlap) {
       $accentColor: config(primary);
       &:after {
@@ -157,10 +158,12 @@
         padding-bottom: 5px;
       }
       .da-headerCozy {
-        .da-avatar {
-          width: 0;
-          padding: 0;
-          margin: 0 0 0 $leftpad;
+        & > .da-avatar {
+          width: 40px;
+          height: 40px;
+          margin: inherit;
+          margin-left: -58px;
+          margin-right: 28px;
           &:hover {
             opacity: 1;
           }
