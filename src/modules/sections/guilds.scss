@@ -29,6 +29,16 @@ $iconRad: config(radius);
       margin-left: 20px;
     }
   }
+
+  // Home Button
+  & .da-listItem > .da-listItemWrapper {
+    &,
+    & > .da-wrapper,
+    & > .da-wrapper > svg {
+      width: $iconSize;
+      height: $iconSize;
+    }
+  }
   & > .da-scrollerWrap > .da-scroller > .da-wrapper {
     $folderIconSize: $iconSize - 6px;
     width: $iconSize;

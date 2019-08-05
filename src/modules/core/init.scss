@@ -8,6 +8,9 @@
 .da-titleWrapper > .da-title {
   background-color: $black-1;
 }
+.da-backdropWithLayer + .da-layer {
+  background-color: inherit;
+}
 .da-channels,
 .da-channels > .da-container,
 .da-messagesPopoutWrap .da-messageGroupWrapper .da-actionButtons {

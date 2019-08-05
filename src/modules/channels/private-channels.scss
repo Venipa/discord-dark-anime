@@ -2,6 +2,10 @@
   .da-channel {
     & > a {
       margin: 0;
+      & > svg.da-linkButtonIcon {
+        opacity: 0.8;
+        color: #fff;
+      }
     }
     @include transition(all 0.12s ease-out);
     will-change: background-color, color, box-shadow;
