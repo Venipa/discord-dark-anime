@@ -277,7 +277,6 @@
     .da-video {
       background-color: rgba(config(dark), 0.25);
       position: relative;
-      padding-bottom: 32px;
       box-shadow: inset 0 -60px 60px -60px black;
       &::before {
         content: "";
