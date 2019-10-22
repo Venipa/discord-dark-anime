@@ -1,4 +1,6 @@
-&.da-popouts {
+&.da-popouts,
+.da-popouts > .da-popout,
+.da-layerContainer > [id^="popout_"] {
   .da-menu {
     position: relative;
     &:before {
@@ -37,11 +39,11 @@
     }
   }
   .da-userPopout {
-    margin-left: -30px;
     display: flex;
-    flex: 1 1 auto;
+    flex: 1 0 auto;
     flex-wrap: wrap;
     min-width: 500px;
+    flex-flow: wrap;
     @include border-radius(config("radius"));
     .da-header {
       background-image: url("/src/resources/triangles.png");
