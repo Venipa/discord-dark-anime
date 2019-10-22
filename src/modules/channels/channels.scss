@@ -3,7 +3,11 @@ $userbarHeight: 68px;
   margin-bottom: $userbarHeight - 30px;
 }
 
-.da-channels {
+.da-channels,
+.da-guilds + .da-base .da-sidebar {
+  & > .da-container {
+    background-color: transparent;
+  }
   $height: 34px;
   $marginReset-size: $height - 4px;
   position: relative;

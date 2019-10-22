@@ -1,4 +1,11 @@
+.da-sidebar {
+  background-color: transparent;
+}
 .da-privateChannels {
+  &,
+  [class*="scroller-"] {
+    background-color: transparent;
+  }
   .da-channel {
     & > a {
       margin: 0;

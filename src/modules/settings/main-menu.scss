@@ -1,10 +1,16 @@
 .da-standardSidebarView {
   background: $black-1;
   .da-sidebarRegion {
+    .da-sidebarRegionScroller {
+      background: none;
+    }
     background: darken(config("dark"), 5);
   }
   .da-contentRegion,
   .content-region {
+    .da-contentRegionScroller {
+      background: none;
+    }
     background: darken(config("dark"), 3);
   }
   .da-sidebar {

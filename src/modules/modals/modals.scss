@@ -135,6 +135,7 @@
     .da-topSectionStreaming,
     .da-topSectionNormal {
       position: relative;
+      z-index: 0;
       a.da-anchor {
         color: lighten(config(primary), 20);
         text-shadow: 0 0 2px lighten(config(primary), 30);

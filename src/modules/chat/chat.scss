@@ -267,7 +267,33 @@
   }
 }
 .da-chat {
-  background: rgba(0, 0, 0, 0);
+  &,
+  .da-content div[class*="messages-"] {
+    background-image: none;
+    background-color: transparent !important;
+  }
+  .da-videoHeight {
+    background-color: transparent;
+    .da-video {
+      background-color: rgba(config(dark), 0.25);
+      position: relative;
+      padding-bottom: 32px;
+      box-shadow: inset 0 -60px 60px -60px black;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: parseVar("custom-background");
+        background-size: parseVar("custom-background-size");
+        background-position: top;
+        filter: blur(10px);
+        z-index: -1;
+      }
+    }
+  }
   position: relative;
   & > .da-titleWrapper {
     @include shadow(3);
